@@ -3018,3 +3018,388 @@ main[class*="pt-20"] {
 
 
 
+
+
+/* ==========================================================================
+   HOMEPAGE REFINEMENTS (HERO, FACILITY CLUSTER PREVIEW, PROPELPAD COMPACT)
+   ========================================================================== */
+
+/* 1. HOMEPAGE HERO: Rich Radial Gradient & Ambient Depth Lighting */
+.ws-hero-home {
+  background: radial-gradient(ellipse 95% 75% at 50% 12%, #024838 0%, #013427 45%, #012119 85%, #001610 100%) !important;
+  position: relative;
+}
+
+.ws-hero-home .ws-hero-ambient-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(166, 241, 52, 0.08) 0%, rgba(16, 185, 129, 0.05) 35%, transparent 70%),
+              radial-gradient(circle at 85% 30%, rgba(166, 241, 52, 0.035) 0%, transparent 50%),
+              radial-gradient(circle at 15% 30%, rgba(2, 72, 56, 0.18) 0%, transparent 50%);
+}
+
+/* 2. FACILITY CLUSTER PREVIEW: Operational Network Illustration */
+.ws-facility-canvas {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAF7 100%);
+  border: 1px solid #E5EAE3;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(1, 49, 37, 0.03);
+}
+
+.ws-facility-route-base {
+  stroke: #E2E8E0;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.ws-facility-flow-line {
+  stroke: #013125;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 10 24;
+  animation: wsRouteFlowLineAnim 2.6s linear infinite;
+}
+
+.ws-facility-flow-line-lime {
+  stroke: #A6F134;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 20;
+  animation: wsRouteFlowLineRevAnim 3.2s linear infinite;
+}
+
+@keyframes wsRouteFlowLineAnim {
+  from { stroke-dashoffset: 68; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes wsRouteFlowLineRevAnim {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 56; }
+}
+
+/* Facility Node Pulse Rings */
+.ws-facility-pulse-ring {
+  animation: wsFacilityPulseRing 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  transform-origin: center;
+}
+
+@keyframes wsFacilityPulseRing {
+  0% {
+    r: 10;
+    opacity: 0.85;
+    stroke-width: 2.2;
+  }
+  65% {
+    r: 22;
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+  100% {
+    r: 22;
+    opacity: 0;
+  }
+}
+
+/* Moving Courier Vehicle Marker Styling */
+.ws-vehicle-marker {
+  filter: drop-shadow(0 2px 4px rgba(1, 49, 37, 0.25));
+}
+
+.ws-vehicle-van-body {
+  fill: #013125;
+  stroke: #A6F134;
+  stroke-width: 1.2;
+}
+
+.ws-vehicle-van-cab {
+  fill: #A6F134;
+}
+
+.ws-vehicle-wheel {
+  fill: #001610;
+  stroke: #FFFFFF;
+  stroke-width: 0.75;
+}
+
+/* Floating Operational Status Badges */
+.ws-facility-node-pill {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  pointer-events: auto;
+}
+
+.ws-facility-node-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(1, 49, 37, 0.1);
+}
+
+/* 3. COMPACT PROPELPAD REFINEMENT FOR HOMEPAGE */
+#propelpad.ws-propelpad-section {
+  background-color: #ffffff !important;
+  padding-top: clamp(1.5rem, 2.5vw, 2.25rem) !important;
+  padding-bottom: clamp(1.5rem, 2.5vw, 2.25rem) !important;
+}
+
+#propelpad .ws-propelpad-card {
+  background-color: #FAFAF8 !important;
+  border: 1px solid #E9ECE8 !important;
+  padding: clamp(1.25rem, 2.2vw, 1.85rem) !important;
+}
+
+#propelpad .ws-propelpad-card {
+  padding: clamp(1.25rem, 2.2vw, 1.85rem) !important;
+}
+
+#propelpad .ws-propel-visual-box {
+  padding: clamp(1rem, 1.8vw, 1.35rem) !important;
+}
+
+#propelpad .ws-propel-node {
+  padding: 0.625rem 0.875rem !important;
+}
+
+#propelpad .ws-propel-node-active {
+  padding: 0.75rem 0.875rem !important;
+}
+
+/* Smooth connector line animation */
+.ws-propel-route-line-smooth {
+  stroke-dasharray: 6 8;
+  animation: wsPropelSmoothFlow 2.2s linear infinite;
+}
+
+@keyframes wsPropelSmoothFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -28; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-facility-flow-line,
+  .ws-facility-flow-line-lime,
+  .ws-facility-pulse-ring,
+  .ws-propel-route-line-smooth,
+  .ws-propel-route-line,
+  .ws-propel-pulse-dot {
+    animation: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   CLEAN SNOW-WHITE HERO BACKGROUNDS ACROSS ALL 8 PAGES
+   - Pure snow-white background (#FFFFFF) with zero blue or grey tint
+   - High-contrast, readable deep green typography (#013125)
+   - Brand secondary accent (#436900) for highlighted headings
+   - Readable descriptions (#414845) and subtext (#69736D)
+   - Hairline separation border (#E9ECE8)
+   ========================================================================== */
+.ws-hero,
+.ws-hero-home,
+.ws-hero-partner,
+.ws-hero-storage,
+.ws-hero-solutions {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  background: #FFFFFF !important;
+  color: #013125 !important;
+  border-bottom: 1px solid #E9ECE8 !important;
+}
+
+.ws-hero-ambient-glow {
+  display: none !important;
+}
+
+/* Headings: Deep Green (#013125) with high contrast */
+.ws-hero-title,
+.ws-hero h1,
+.ws-hero .ws-hero-title,
+.ws-hero h1.text-surface-canvas,
+.ws-hero .text-surface-canvas {
+  color: #013125 !important;
+}
+
+/* Accent spans inside headings: Rich brand secondary green (#436900) for readability on white */
+.ws-hero-title span,
+.ws-hero h1 span,
+.ws-hero-title .text-accent-lime,
+.ws-hero h1 .text-accent-lime,
+.ws-hero .text-accent-lime {
+  color: #436900 !important;
+}
+
+/* Descriptions: Readable dark charcoal */
+.ws-hero-desc,
+.ws-hero p.ws-hero-desc,
+.ws-hero p.text-white\/85,
+.ws-hero p {
+  color: #414845 !important;
+}
+
+/* Subtext: Muted grey */
+.ws-hero-subtext,
+.ws-hero p.ws-hero-subtext,
+.ws-hero p.text-white\/70 {
+  color: #69736D !important;
+}
+
+/* Secondary CTA Buttons on Pure White Background */
+.ws-hero-btn-secondary,
+.ws-btn-glass,
+.ws-solutions-btn-secondary {
+  background-color: #FFFFFF !important;
+  color: #013125 !important;
+  border: 1.5px solid #E2E8E0 !important;
+  box-shadow: 0 2px 8px rgba(1, 49, 37, 0.06) !important;
+}
+
+.ws-hero-btn-secondary:hover,
+.ws-btn-glass:hover,
+.ws-solutions-btn-secondary:hover {
+  background-color: #F8FAF7 !important;
+  border-color: #013125 !important;
+  box-shadow: 0 4px 14px rgba(1, 49, 37, 0.12) !important;
+}
+
+
+/* ==========================================================================
+   OUR NETWORK: COHESIVE CAPABILITIES SECTION REFINEMENT
+   - Centered layout, dark green (#013125) typography
+   - Subtle lime green (#A6F134) dot & decorative accent bar
+   ========================================================================== */
+.ws-cohesive-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ws-cohesive-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #013125;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+}
+
+.ws-cohesive-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #A6F134;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ws-cohesive-title {
+  color: #013125 !important;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ws-cohesive-accent-bar {
+  width: 3rem;
+  height: 0.25rem;
+  background-color: #A6F134;
+  border-radius: 9999px;
+  margin: 0.25rem auto;
+}
+
+.ws-cohesive-desc {
+  color: rgba(1, 49, 37, 0.75) !important;
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ==========================================================================
+   HOMEPAGE HERO: INCREASED TYPOGRAPHY SCALING (index.html ONLY)
+   - Prominent, bold, authoritative 3-line headline
+   - Enhanced readability for primary and secondary description paragraphs
+   - Guaranteed single-viewport fit without scrolling or vertical overflow
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .ws-hero-home .ws-hero-title,
+  .ws-hero-home h1 {
+    font-size: clamp(2.5rem, 3.6vw + 0.5rem, 3.5rem) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .ws-hero-home .ws-hero-desc,
+  .ws-hero-home p.ws-hero-desc {
+    font-size: clamp(1.0625rem, 0.4vw + 0.95rem, 1.25rem) !important;
+    line-height: 1.55 !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .ws-hero-home .ws-hero-subtext,
+  .ws-hero-home p.ws-hero-subtext {
+    font-size: clamp(0.9375rem, 0.25vw + 0.875rem, 1.0625rem) !important;
+    line-height: 1.5 !important;
+    max-width: 740px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .ws-hero-home .ws-hero-title,
+  .ws-hero-home h1 {
+    font-size: clamp(2.15rem, 4.2vw, 2.75rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .ws-hero-home .ws-hero-desc,
+  .ws-hero-home p.ws-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.125rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .ws-hero-home .ws-hero-subtext,
+  .ws-hero-home p.ws-hero-subtext {
+    font-size: clamp(0.875rem, 1.4vw, 0.96875rem) !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .ws-hero-home .ws-hero-title,
+  .ws-hero-home h1 {
+    font-size: clamp(1.85rem, 7vw, 2.35rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .ws-hero-home .ws-hero-desc,
+  .ws-hero-home p.ws-hero-desc {
+    font-size: 0.96875rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .ws-hero-home .ws-hero-subtext,
+  .ws-hero-home p.ws-hero-subtext {
+    font-size: 0.84375rem !important;
+    line-height: 1.45 !important;
+  }
+}

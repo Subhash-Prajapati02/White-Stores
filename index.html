@@ -178,7 +178,7 @@
   </div>
 </header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
 <!-- SECTION 1: HERO -->
-<section class="ws-hero ws-hero-full-viewport relative bg-brand-deep-green text-surface-canvas overflow-hidden flex items-center justify-center">
+<section class="ws-hero ws-hero-full-viewport ws-hero-home relative bg-white text-surface-canvas overflow-hidden flex items-center justify-center">
   <!-- Subtle Ambient Glow Layer -->
   <div class="ws-hero-ambient-glow pointer-events-none" aria-hidden="true"></div>
 
@@ -186,12 +186,6 @@
   <div class="ws-hero-content relative z-10 w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-6 sm:py-8 lg:py-10 text-center flex flex-col items-center">
     <div class="max-w-[850px] mx-auto text-center flex flex-col items-center gap-3 sm:gap-4">
       
-      <!-- Eyebrow Badge -->
-      <div class="ws-hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-        <span class="ws-badge-dot w-2 h-2 rounded-full bg-[#82D616] animate-pulse"></span>
-        <span>Food Commerce Infrastructure &amp; Operations</span>
-      </div>
-
       <!-- Main Heading -->
       <h1 class="ws-hero-title font-display-hero text-surface-canvas tracking-tight font-extrabold">
         Your Brand.<br/>
@@ -874,53 +868,172 @@
 </div>
 </div>
 <div class="lg:col-span-7">
-<div class="relative bg-surface-canvas rounded-2xl p-space-xl border border-border-subtle shadow-sm flex flex-col gap-space-lg">
-<div class="flex items-center justify-between border-b border-border-subtle pb-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-3 h-3 rounded-full bg-accent-lime animate-pulse"></div>
-<span class="font-headline-sm text-sm font-bold text-brand-deep-green uppercase tracking-wider">Facility Cluster Preview</span>
+<div class="relative bg-surface-canvas rounded-2xl p-5 sm:p-7 border border-border-subtle shadow-sm flex flex-col gap-4 sm:gap-5">
+<div class="flex items-center justify-between border-b border-border-subtle pb-3 sm:pb-4">
+<div class="flex items-center gap-2.5">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-lime opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-accent-lime"></span>
 </div>
-<span class="font-caption text-caption text-text-muted">High-density urban hubs</span>
+<span class="font-headline-sm text-xs sm:text-sm font-bold text-brand-deep-green uppercase tracking-wider">Facility Cluster Preview</span>
 </div>
-<!-- Network Architecture Graphic -->
-<div class="relative bg-surface-alt rounded-xl p-space-lg overflow-hidden border border-border-subtle min-h-[260px] flex items-center justify-center">
-<svg class="w-full h-48 text-text-muted/20" fill="none" viewbox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
-<path d="M50 120 C 150 40, 250 200, 350 100 C 450 20, 500 180, 550 120" stroke="currentColor" stroke-dasharray="6 6" stroke-width="2"></path>
-<circle cx="80" cy="110" fill="#013125" r="14"></circle>
-<circle cx="80" cy="110" fill="#A6F134" r="6"></circle>
-<circle cx="240" cy="150" fill="#013125" r="18"></circle>
-<circle cx="240" cy="150" fill="#A6F134" r="8"></circle>
-<circle cx="370" cy="90" fill="#013125" r="22"></circle>
-<circle cx="370" cy="90" fill="#A6F134" r="10"></circle>
-<circle cx="510" cy="130" fill="#013125" r="14"></circle>
-<circle cx="510" cy="130" fill="#A6F134" r="6"></circle>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#013125]/5 border border-[#013125]/10 text-[11px] font-semibold text-brand-deep-green">
+<span class="w-1.5 h-1.5 rounded-full bg-[#013125]"></span>
+<span>Active Urban Catchments</span>
+</div>
+</div>
+<!-- Operational Network Architecture Illustration with Animated Delivery Flow -->
+<div class="ws-facility-canvas relative min-h-[300px] sm:min-h-[320px] p-2 sm:p-4 flex items-center justify-center">
+<svg class="w-full h-auto max-h-[310px] overflow-visible" viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="hubAlphaGlow" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#A6F134" stop-opacity="0.35"/>
+<stop offset="100%" stop-color="#A6F134" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<!-- Background Coordinate Grid & Radar Guidelines -->
+<g class="ws-grid-layer" opacity="0.45" stroke="#E2E8E0" stroke-width="0.8">
+<line x1="40" y1="70" x2="600" y2="70" stroke-dasharray="3 5"/>
+<line x1="40" y1="140" x2="600" y2="140" stroke-dasharray="3 5"/>
+<line x1="40" y1="210" x2="600" y2="210" stroke-dasharray="3 5"/>
+<line x1="160" y1="30" x2="160" y2="250" stroke-dasharray="3 5"/>
+<line x1="320" y1="30" x2="320" y2="250" stroke-dasharray="3 5"/>
+<line x1="480" y1="30" x2="480" y2="250" stroke-dasharray="3 5"/>
+</g>
+<!-- Central Hub Coverage Radar Rings -->
+<circle cx="320" cy="140" r="110" stroke="#013125" stroke-opacity="0.05" stroke-width="1.5" stroke-dasharray="4 6"/>
+<circle cx="320" cy="140" r="65" stroke="#A6F134" stroke-opacity="0.2" stroke-width="1.5"/>
+
+<!-- Interconnected Operational Routes -->
+<path id="routeNorthEast" class="ws-facility-route-base" d="M 120,70 C 190,55 250,115 320,140 C 390,165 450,75 520,85"/>
+<path class="ws-facility-flow-line" d="M 120,70 C 190,55 250,115 320,140 C 390,165 450,75 520,85"/>
+
+<path id="routeSouthSE" class="ws-facility-route-base" d="M 150,215 C 215,235 265,170 320,140 C 375,110 435,225 490,210"/>
+<path class="ws-facility-flow-line-lime" d="M 150,215 C 215,235 265,170 320,140 C 375,110 435,225 490,210"/>
+
+<!-- Perimeter Inter-Hub Feeders -->
+<path class="ws-facility-route-base" stroke-dasharray="4 4" d="M 120,70 C 105,135 125,175 150,215"/>
+<path class="ws-facility-route-base" stroke-dasharray="4 4" d="M 520,85 C 535,140 515,175 490,210"/>
+
+<!-- Animated Courier Delivery Vehicles -->
+<g class="ws-vehicle-marker">
+<rect x="-11" y="-6" width="20" height="12" rx="3.5" class="ws-vehicle-van-body"/>
+<path d="M5,-4 L8,-2 L8,2 L5,4 Z" class="ws-vehicle-van-cab"/>
+<circle cx="-5" cy="-6" r="2" class="ws-vehicle-wheel"/>
+<circle cx="4" cy="-6" r="2" class="ws-vehicle-wheel"/>
+<circle cx="-5" cy="6" r="2" class="ws-vehicle-wheel"/>
+<circle cx="4" cy="6" r="2" class="ws-vehicle-wheel"/>
+<polygon points="9,-3 16,-5 16,5 9,3" fill="rgba(166, 241, 52, 0.45)"/>
+<animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
+<mpath href="#routeNorthEast"/>
+</animateMotion>
+</g>
+
+<g class="ws-vehicle-marker">
+<rect x="-10" y="-5.5" width="18" height="11" rx="3" fill="#013125" stroke="#FFFFFF" stroke-width="1.2"/>
+<path d="M-5,-3.5 L-8,-1.5 L-8,1.5 L-5,3.5 Z" fill="#A6F134"/>
+<circle cx="-4" cy="-5.5" r="1.8" class="ws-vehicle-wheel"/>
+<circle cx="4" cy="-5.5" r="1.8" class="ws-vehicle-wheel"/>
+<circle cx="-4" cy="5.5" r="1.8" class="ws-vehicle-wheel"/>
+<circle cx="4" cy="5.5" r="1.8" class="ws-vehicle-wheel"/>
+<polygon points="-9,-2.5 -15,-4 -15,4 -9,2.5" fill="rgba(166, 241, 52, 0.45)"/>
+<animateMotion dur="8.5s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1">
+<mpath href="#routeSouthSE"/>
+</animateMotion>
+</g>
+
+<!-- Facility Nodes -->
+<!-- Node 1: North Kitchen Hub -->
+<g transform="translate(120, 70)">
+<circle class="ws-facility-pulse-ring" cx="0" cy="0" r="10" fill="none" stroke="#013125" style="animation-delay: 0.6s"/>
+<circle cx="0" cy="0" r="12" fill="#013125" stroke="#FFFFFF" stroke-width="2.5"/>
+<circle cx="0" cy="0" r="5" fill="#A6F134"/>
+</g>
+
+<!-- Node 2: South Cold Depot -->
+<g transform="translate(150, 215)">
+<circle class="ws-facility-pulse-ring" cx="0" cy="0" r="10" fill="none" stroke="#013125" style="animation-delay: 1.4s"/>
+<circle cx="0" cy="0" r="12" fill="#013125" stroke="#FFFFFF" stroke-width="2.5"/>
+<circle cx="0" cy="0" r="5" fill="#A6F134"/>
+</g>
+
+<!-- Node 3: East Multi-Channel Fulfillment -->
+<g transform="translate(520, 85)">
+<circle class="ws-facility-pulse-ring" cx="0" cy="0" r="10" fill="none" stroke="#013125" style="animation-delay: 2.1s"/>
+<circle cx="0" cy="0" r="12" fill="#013125" stroke="#FFFFFF" stroke-width="2.5"/>
+<circle cx="0" cy="0" r="5" fill="#A6F134"/>
+</g>
+
+<!-- Node 4: SE Express Micro-Hub -->
+<g transform="translate(490, 210)">
+<circle class="ws-facility-pulse-ring" cx="0" cy="0" r="9" fill="none" stroke="#013125" style="animation-delay: 1.8s"/>
+<circle cx="0" cy="0" r="11" fill="#013125" stroke="#FFFFFF" stroke-width="2"/>
+<circle cx="0" cy="0" r="4.5" fill="#A6F134"/>
+</g>
+
+<!-- Central Primary Node: Hub Alpha -->
+<g transform="translate(320, 140)">
+<circle cx="0" cy="0" r="32" fill="url(#hubAlphaGlow)"/>
+<circle class="ws-facility-pulse-ring" cx="0" cy="0" r="14" fill="none" stroke="#A6F134" stroke-width="2.5"/>
+<circle cx="0" cy="0" r="17" fill="#013125" stroke="#FFFFFF" stroke-width="3" filter="drop-shadow(0 2px 6px rgba(1,49,37,0.35))"/>
+<circle cx="0" cy="0" r="7.5" fill="#A6F134"/>
+<circle cx="0" cy="0" r="3" fill="#013125"/>
+</g>
 </svg>
-<div class="absolute inset-0 flex flex-wrap gap-2 items-center justify-center sm:justify-around px-2 sm:px-4 pointer-events-none">
-<div class="bg-surface-canvas/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border-subtle shadow-sm text-center">
-<span class="block font-caption text-[11px] font-bold text-brand-deep-green">Primary Hub</span>
-<span class="font-caption text-[10px] text-text-muted">Cold + Kitchen</span>
+
+<!-- Floating Status Badges -->
+<div class="absolute inset-0 p-3 sm:p-5 pointer-events-none flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="ws-facility-node-pill bg-white/95 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-[#E2E8E0] shadow-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#013125]"></span>
+<div>
+<span class="block text-[10px] sm:text-[11px] font-bold text-brand-deep-green leading-none">Kitchen Hub 01</span>
+<span class="text-[9px] text-text-muted leading-tight">Prep &amp; SOP Execution</span>
 </div>
-<div class="bg-surface-canvas/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border-subtle shadow-sm text-center">
-<span class="block font-caption text-[11px] font-bold text-brand-deep-green">Fulfillment Node</span>
-<span class="font-caption text-[10px] text-text-muted">Same-Day Dispatch</span>
 </div>
-<div class="bg-surface-canvas/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border-subtle shadow-sm text-center">
-<span class="block font-caption text-[11px] font-bold text-brand-deep-green">Micro-Store</span>
-<span class="font-caption text-[10px] text-text-muted">Instant Access</span>
+<div class="ws-facility-node-pill bg-white/95 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-[#E2E8E0] shadow-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#013125]"></span>
+<div>
+<span class="block text-[10px] sm:text-[11px] font-bold text-brand-deep-green leading-none">Fulfillment Hub 02</span>
+<span class="text-[9px] text-text-muted leading-tight">Multi-Platform Dispatch</span>
+</div>
+</div>
+</div>
+<div class="self-center -mt-6">
+<div class="ws-facility-node-pill bg-[#013125] text-white px-3 py-1.5 rounded-full border border-accent-lime/40 shadow-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-lime animate-pulse"></span>
+<span class="text-[10px] sm:text-[11px] font-bold tracking-wide">Central Storage &amp; Master Logistics Hub</span>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<div class="ws-facility-node-pill bg-white/95 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-[#E2E8E0] shadow-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#A6F134] border border-[#013125]"></span>
+<div>
+<span class="block text-[10px] sm:text-[11px] font-bold text-brand-deep-green leading-none">Cold Depot 03</span>
+<span class="text-[9px] text-text-muted leading-tight">Controlled Climate (-18°C)</span>
+</div>
+</div>
+<div class="ws-facility-node-pill bg-white/95 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-[#E2E8E0] shadow-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#A6F134] border border-[#013125]"></span>
+<div>
+<span class="block text-[10px] sm:text-[11px] font-bold text-brand-deep-green leading-none">Micro-Store 04</span>
+<span class="text-[9px] text-text-muted leading-tight">&lt;15 Min Rapid Handoff</span>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="grid grid-cols-3 gap-space-md text-center pt-space-xs">
 <div>
-<span class="font-headline-sm text-sm font-bold text-brand-deep-green block">Strategic</span>
+<span class="font-headline-sm text-xs sm:text-sm font-bold text-brand-deep-green block">Strategic</span>
 <span class="font-caption text-caption text-text-muted">Key Urban Catchments</span>
 </div>
 <div>
-<span class="font-headline-sm text-sm font-bold text-brand-deep-green block">Integrated</span>
+<span class="font-headline-sm text-xs sm:text-sm font-bold text-brand-deep-green block">Integrated</span>
 <span class="font-caption text-caption text-text-muted">Unified Storage &amp; Prep</span>
 </div>
 <div>
-<span class="font-headline-sm text-sm font-bold text-brand-deep-green block">Compliant</span>
+<span class="font-headline-sm text-xs sm:text-sm font-bold text-brand-deep-green block">Compliant</span>
 <span class="font-caption text-caption text-text-muted">Commercial Food Grade</span>
 </div>
 </div>
@@ -969,13 +1082,13 @@
 </div>
 </div>
 </section>
-<!-- SECTION: POWERED BY PROPELPAD (Light Corporate Redesign) -->
-<section id="propelpad" class="ws-propelpad-section py-10 sm:py-12 lg:py-14 bg-[#F6F7F3] border-t border-[#E9ECE8] relative overflow-hidden">
+<!-- SECTION: POWERED BY PROPELPAD (Compact Light Corporate Refinement) -->
+<section id="propelpad" class="ws-propelpad-section py-6 sm:py-8 lg:py-8 bg-white border-t border-[#E9ECE8] relative overflow-hidden">
   <div class="max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
-    <div class="ws-propelpad-card p-6 sm:p-8 lg:p-10 relative overflow-hidden">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <div class="ws-propelpad-card p-5 sm:p-6 lg:p-7 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         <!-- Left Column: Content & Typography -->
-        <div class="lg:col-span-7 flex flex-col gap-4">
+        <div class="lg:col-span-7 flex flex-col gap-3 sm:gap-3.5">
           <!-- Eyebrow Badge -->
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#013125]/5 text-[#013125] border border-[#013125]/15 w-fit">
             <span class="w-2 h-2 rounded-full bg-[#A6F134]"></span>
@@ -983,28 +1096,28 @@
           </div>
 
           <!-- Main Heading -->
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#013125] leading-tight">
+          <h2 class="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight text-[#013125] leading-tight">
             Powered by <span class="text-[#013125]">PropelPad Business Solutions.</span>
           </h2>
 
           <!-- Core Relationship Information -->
-          <div class="space-y-3 text-sm sm:text-base text-[#252C29] leading-relaxed font-normal">
+          <div class="space-y-2 text-xs sm:text-sm text-[#252C29] leading-relaxed font-normal">
             <p>
               WhiteStores is a food-commerce infrastructure and operations brand by <strong class="text-[#013125] font-semibold">PropelPad Business Solutions Private Limited</strong>. Through WhiteStores, PropelPad brings together infrastructure, people and operational capabilities to support the growing needs of food and FMCG businesses.
             </p>
-            <p class="text-xs sm:text-sm text-[#69736D] leading-relaxed pt-2 border-t border-[#E9ECE8]">
+            <p class="text-xs text-[#69736D] leading-relaxed pt-1.5 border-t border-[#E9ECE8]">
               PropelPad is the parent business supporting WhiteStores through enterprise business infrastructure, operational capabilities and organizational governance.
             </p>
           </div>
 
           <!-- Subtle Corporate Badges -->
-          <div class="pt-1 flex flex-wrap items-center gap-2.5 text-xs font-semibold text-[#013125]">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F6F7F3] border border-[#E9ECE8]">
-              <span class="material-symbols-outlined text-[#013125] text-[18px]">corporate_fare</span>
+          <div class="pt-0.5 flex flex-wrap items-center gap-2 text-xs font-semibold text-[#013125]">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#F6F7F3] border border-[#E9ECE8]">
+              <span class="material-symbols-outlined text-[#013125] text-[16px]">corporate_fare</span>
               <span>Parent Entity: <strong class="text-[#013125]">PropelPad Business Solutions Pvt. Ltd.</strong></span>
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F6F7F3] border border-[#E9ECE8]">
-              <span class="material-symbols-outlined text-[#013125] text-[18px]">storefront</span>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#F6F7F3] border border-[#E9ECE8]">
+              <span class="material-symbols-outlined text-[#013125] text-[16px]">storefront</span>
               <span>Operating Brand: <strong class="text-[#013125]">WhiteStores</strong></span>
             </div>
           </div>
@@ -1012,8 +1125,8 @@
 
         <!-- Right Column: Animated Business Flow Visual (PropelPad → WhiteStores → Food & FMCG Operations) -->
         <div class="lg:col-span-5">
-          <div class="ws-propel-visual-box p-5 sm:p-6">
-            <div class="flex items-center justify-between pb-3 border-b border-[#E9ECE8] mb-4">
+          <div class="ws-propel-visual-box p-4 sm:p-5">
+            <div class="flex items-center justify-between pb-2.5 border-b border-[#E9ECE8] mb-3">
               <span class="text-[11px] font-bold text-[#69736D] uppercase tracking-wider">Enterprise Connected Flow</span>
               <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#013125] bg-[#A6F134]/30 px-2.5 py-0.5 rounded-full border border-[#A6F134]/50">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#013125] animate-pulse"></span>
@@ -1024,55 +1137,55 @@
             <!-- Connected Nodes Sequence -->
             <div class="space-y-0">
               <!-- Node 1: PropelPad -->
-              <div class="ws-propel-node p-3.5 sm:p-4 text-center">
-                <div class="flex items-center justify-center gap-2 mb-1">
-                  <span class="material-symbols-outlined text-[#013125] text-[18px]">corporate_fare</span>
-                  <span class="text-[11px] font-bold text-[#013125] uppercase tracking-wider">Parent Business Entity</span>
+              <div class="ws-propel-node p-2.5 sm:p-3 text-center">
+                <div class="flex items-center justify-center gap-1.5 mb-0.5">
+                  <span class="material-symbols-outlined text-[#013125] text-[16px]">corporate_fare</span>
+                  <span class="text-[10px] font-bold text-[#013125] uppercase tracking-wider">Parent Business Entity</span>
                 </div>
-                <h4 class="text-sm sm:text-base font-bold text-[#013125]">PropelPad Business Solutions Private Limited</h4>
-                <p class="text-xs text-[#69736D] mt-0.5">Enterprise Business &amp; Operations Support</p>
+                <h4 class="text-xs sm:text-sm font-bold text-[#013125]">PropelPad Business Solutions Private Limited</h4>
+                <p class="text-[11px] text-[#69736D] mt-0.5">Enterprise Business &amp; Operations Support</p>
               </div>
 
               <!-- Animated Route Connector 1 -->
-              <div class="flex flex-col items-center justify-center py-0.5 relative h-7" aria-hidden="true">
-                <svg class="h-full w-5 overflow-visible" viewbox="0 0 20 28" fill="none">
-                  <line stroke="#E9ECE8" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
-                  <line class="ws-propel-route-line" stroke="#013125" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
-                  <circle class="ws-propel-pulse-dot" cx="10" cy="4" fill="#A6F134" r="3.5" stroke="#013125" stroke-width="1.5"></circle>
+              <div class="flex flex-col items-center justify-center py-0.5 relative h-5 sm:h-6" aria-hidden="true">
+                <svg class="h-full w-5 overflow-visible" viewBox="0 0 20 24" fill="none">
+                  <line stroke="#E9ECE8" stroke-width="2" x1="10" x2="10" y1="0" y2="24"></line>
+                  <line class="ws-propel-route-line-smooth" stroke="#013125" stroke-width="2" x1="10" x2="10" y1="0" y2="24"></line>
+                  <circle class="ws-propel-pulse-dot" cx="10" cy="3" fill="#A6F134" r="3" stroke="#013125" stroke-width="1.2"></circle>
                 </svg>
               </div>
 
               <!-- Node 2: WhiteStores (Active Operating Backbone) -->
-              <div class="ws-propel-node-active p-3.5 sm:p-4 text-center relative">
-                <span class="absolute top-3 right-3 flex h-2 w-2" aria-hidden="true">
+              <div class="ws-propel-node-active p-2.5 sm:p-3 text-center relative">
+                <span class="absolute top-2.5 right-2.5 flex h-2 w-2" aria-hidden="true">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A6F134] opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-[#A6F134]"></span>
                 </span>
-                <div class="flex items-center justify-center gap-2 mb-1">
-                  <span class="material-symbols-outlined text-[#013125] text-[18px]">storefront</span>
-                  <span class="text-[11px] font-bold text-[#013125] uppercase tracking-wider">Operating Backbone</span>
+                <div class="flex items-center justify-center gap-1.5 mb-0.5">
+                  <span class="material-symbols-outlined text-[#013125] text-[16px]">storefront</span>
+                  <span class="text-[10px] font-bold text-[#013125] uppercase tracking-wider">Operating Backbone</span>
                 </div>
-                <h4 class="text-base sm:text-lg font-extrabold text-[#013125] tracking-tight">WhiteStores</h4>
-                <p class="text-xs text-[#414845] mt-0.5">Food-commerce infrastructure &amp; operations network</p>
+                <h4 class="text-sm sm:text-base font-extrabold text-[#013125] tracking-tight">WhiteStores</h4>
+                <p class="text-[11px] text-[#414845] mt-0.5">Food-commerce infrastructure &amp; operations network</p>
               </div>
 
               <!-- Animated Route Connector 2 -->
-              <div class="flex flex-col items-center justify-center py-0.5 relative h-7" aria-hidden="true">
-                <svg class="h-full w-5 overflow-visible" viewbox="0 0 20 28" fill="none">
-                  <line stroke="#E9ECE8" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
-                  <line class="ws-propel-route-line" stroke="#013125" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
-                  <circle class="ws-propel-pulse-dot" cx="10" cy="4" fill="#A6F134" r="3.5" stroke="#013125" stroke-width="1.5"></circle>
+              <div class="flex flex-col items-center justify-center py-0.5 relative h-5 sm:h-6" aria-hidden="true">
+                <svg class="h-full w-5 overflow-visible" viewBox="0 0 20 24" fill="none">
+                  <line stroke="#E9ECE8" stroke-width="2" x1="10" x2="10" y1="0" y2="24"></line>
+                  <line class="ws-propel-route-line-smooth" stroke="#013125" stroke-width="2" x1="10" x2="10" y1="0" y2="24"></line>
+                  <circle class="ws-propel-pulse-dot" cx="10" cy="3" fill="#A6F134" r="3" stroke="#013125" stroke-width="1.2"></circle>
                 </svg>
               </div>
 
               <!-- Node 3: Food & FMCG Operations -->
-              <div class="ws-propel-node p-3.5 sm:p-4 text-center">
-                <div class="flex items-center justify-center gap-2 mb-1">
-                  <span class="material-symbols-outlined text-[#013125] text-[18px]">hub</span>
-                  <span class="text-[11px] font-bold text-[#013125] uppercase tracking-wider">Operational Execution</span>
+              <div class="ws-propel-node p-2.5 sm:p-3 text-center">
+                <div class="flex items-center justify-center gap-1.5 mb-0.5">
+                  <span class="material-symbols-outlined text-[#013125] text-[16px]">hub</span>
+                  <span class="text-[10px] font-bold text-[#013125] uppercase tracking-wider">Operational Execution</span>
                 </div>
                 <h4 class="text-xs sm:text-sm font-bold text-[#013125]">Food &amp; FMCG Business Operations</h4>
-                <p class="text-xs text-[#69736D] mt-0.5">Storage &amp; Distribution • Commerce Operations • Quick Kitchen</p>
+                <p class="text-[11px] text-[#69736D] mt-0.5">Storage &amp; Distribution • Commerce Operations • Quick Kitchen</p>
               </div>
             </div>
           </div>
