@@ -3469,3 +3469,141 @@ main[class*="pt-20"] {
   margin: 0 !important;
   line-height: 1.6 !important;
 }
+
+
+/* ==========================================================================
+   THREE TARGET PAGES HERO: TYPOGRAPHY REFINEMENT
+   - quick-kitchen.html (.ws-hero-kitchen)
+   - our-network.html (.ws-hero-network)
+   - partner-with-us.html (.ws-hero-partner)
+   - Targets: H1 48px, Primary desc 19px, Secondary subtext 17px
+   - Scaled proportionally ~10-15% while preserving fluid responsive behavior
+   - H1 line-height: ~1.12, Paragraph line-height: ~1.5
+   - Single-viewport fit guaranteed without introducing vertical scrolling
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .ws-hero-kitchen .ws-hero-title,
+  .ws-hero-kitchen h1,
+  .ws-hero-network .ws-hero-title,
+  .ws-hero-network h1,
+  .ws-hero-partner .ws-hero-title,
+  .ws-hero-partner h1,
+  .ws-hero-enhanced-typo .ws-hero-title,
+  .ws-hero-enhanced-typo h1 {
+    font-size: clamp(2.4rem, 2.75vw + 0.5rem, 3rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.025em !important;
+    max-width: 860px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .ws-hero-kitchen .ws-hero-desc,
+  .ws-hero-kitchen p.ws-hero-desc,
+  .ws-hero-network .ws-hero-desc,
+  .ws-hero-network p.ws-hero-desc,
+  .ws-hero-partner .ws-hero-desc,
+  .ws-hero-partner p.ws-hero-desc,
+  .ws-hero-enhanced-typo .ws-hero-desc,
+  .ws-hero-enhanced-typo p.ws-hero-desc {
+    font-size: clamp(1.0625rem, 0.35vw + 0.85rem, 1.1875rem) !important;
+    line-height: 1.5 !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .ws-hero-kitchen .ws-hero-subtext,
+  .ws-hero-kitchen p.ws-hero-subtext,
+  .ws-hero-network .ws-hero-subtext,
+  .ws-hero-network p.ws-hero-subtext,
+  .ws-hero-partner .ws-hero-subtext,
+  .ws-hero-partner p.ws-hero-subtext,
+  .ws-hero-enhanced-typo .ws-hero-subtext,
+  .ws-hero-enhanced-typo p.ws-hero-subtext {
+    font-size: clamp(0.9375rem, 0.25vw + 0.8rem, 1.0625rem) !important;
+    line-height: 1.5 !important;
+    max-width: 740px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .ws-hero-kitchen .ws-hero-title,
+  .ws-hero-kitchen h1,
+  .ws-hero-network .ws-hero-title,
+  .ws-hero-network h1,
+  .ws-hero-partner .ws-hero-title,
+  .ws-hero-partner h1,
+  .ws-hero-enhanced-typo .ws-hero-title,
+  .ws-hero-enhanced-typo h1 {
+    font-size: clamp(1.85rem, 3.8vw, 2.35rem) !important;
+    line-height: 1.14 !important;
+  }
+
+  .ws-hero-kitchen .ws-hero-desc,
+  .ws-hero-kitchen p.ws-hero-desc,
+  .ws-hero-network .ws-hero-desc,
+  .ws-hero-network p.ws-hero-desc,
+  .ws-hero-partner .ws-hero-desc,
+  .ws-hero-partner p.ws-hero-desc,
+  .ws-hero-enhanced-typo .ws-hero-desc,
+  .ws-hero-enhanced-typo p.ws-hero-desc {
+    font-size: clamp(0.95rem, 1.5vw, 1.0625rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .ws-hero-kitchen .ws-hero-subtext,
+  .ws-hero-kitchen p.ws-hero-subtext,
+  .ws-hero-network .ws-hero-subtext,
+  .ws-hero-network p.ws-hero-subtext,
+  .ws-hero-partner .ws-hero-subtext,
+  .ws-hero-partner p.ws-hero-subtext,
+  .ws-hero-enhanced-typo .ws-hero-subtext,
+  .ws-hero-enhanced-typo p.ws-hero-subtext {
+    font-size: clamp(0.85rem, 1.2vw, 0.9375rem) !important;
+    line-height: 1.48 !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .ws-hero-kitchen .ws-hero-title,
+  .ws-hero-kitchen h1,
+  .ws-hero-network .ws-hero-title,
+  .ws-hero-network h1,
+  .ws-hero-partner .ws-hero-title,
+  .ws-hero-partner h1,
+  .ws-hero-enhanced-typo .ws-hero-title,
+  .ws-hero-enhanced-typo h1 {
+    font-size: clamp(1.65rem, 5.5vw, 2.05rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .ws-hero-kitchen .ws-hero-desc,
+  .ws-hero-kitchen p.ws-hero-desc,
+  .ws-hero-network .ws-hero-desc,
+  .ws-hero-network p.ws-hero-desc,
+  .ws-hero-partner .ws-hero-desc,
+  .ws-hero-partner p.ws-hero-desc,
+  .ws-hero-enhanced-typo .ws-hero-desc,
+  .ws-hero-enhanced-typo p.ws-hero-desc {
+    font-size: 0.9375rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .ws-hero-kitchen .ws-hero-subtext,
+  .ws-hero-kitchen p.ws-hero-subtext,
+  .ws-hero-network .ws-hero-subtext,
+  .ws-hero-network p.ws-hero-subtext,
+  .ws-hero-partner .ws-hero-subtext,
+  .ws-hero-partner p.ws-hero-subtext,
+  .ws-hero-enhanced-typo .ws-hero-subtext,
+  .ws-hero-enhanced-typo p.ws-hero-subtext {
+    font-size: 0.84375rem !important;
+    line-height: 1.45 !important;
+  }
+}
