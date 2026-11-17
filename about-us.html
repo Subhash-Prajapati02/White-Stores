@@ -71,69 +71,50 @@
 <!-- MAIN CONTENT -->
 <main class="w-full pt-20 flex-grow">
 <!-- 1. HERO SECTION – ABOUT US -->
-<section class="ws-hero relative bg-brand-deep-green text-surface-canvas overflow-hidden flex items-center">
-  <!-- Immersive Photography & Lighting Layer -->
-  <div class="ws-hero-media absolute inset-0 pointer-events-none z-0 overflow-hidden">
-    <img alt="Documentary photography of food commerce infrastructure operations and hygienic fulfillment station" class="ws-hero-img" src="assets/stitch-exports/documentary_editorial_photograph_of_food_commerce_infrastructure_operations.png"/>
-    <div class="ws-hero-overlay-desktop"></div>
-    <div class="ws-hero-overlay-mobile"></div>
-    <div class="ws-hero-vignette-bottom"></div>
-    <div class="ws-hero-glow-1"></div>
-    <div class="ws-hero-glow-2"></div>
-  </div>
+<section class="ws-hero relative bg-brand-deep-green text-surface-canvas overflow-hidden flex items-center justify-center">
+  <!-- Subtle Ambient Glow Layer -->
+  <div class="ws-hero-ambient-glow pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Hero Content Container: Exact alignment with our-network.html (max-w-[1280px] px-margin md:px-margin-tablet lg:px-margin-desktop) -->
-  <div class="ws-hero-content relative z-10 w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
-      <!-- Left Column: Content & Typography (7 cols on desktop) -->
-      <div class="lg:col-span-7 flex flex-col items-start gap-3 lg:gap-4 xl:gap-5 text-left">
-        <!-- Eyebrow Badge -->
-        <div class="ws-glass-pill">
-          <span class="w-2 h-2 rounded-full bg-accent-lime animate-pulse"></span>
-          <span>ABOUT US</span>
-        </div>
-        <!-- Main Heading (balanced 2-line break with controlled max-width) -->
-        <h1 class="ws-about-hero-title font-display-hero text-surface-canvas tracking-tight font-extrabold">
-          Behind every growing food brand<br/>
-          is an <span class="text-accent-lime">operation that works.</span>
-        </h1>
-        <!-- Luminous Accent Divider -->
-        <div class="ws-accent-bar"></div>
-        <!-- Description (single concise paragraph, clean & spacious) -->
-        <div class="max-w-xl text-white/85 font-body-lg text-body-lg">
-          <p class="text-base sm:text-lg lg:text-[1.125rem] leading-relaxed font-normal">
-            WhiteStores provides the infrastructure, people and operational support food and FMCG brands need to grow.
-          </p>
-        </div>
-        <!-- Action Buttons / Links (matching our-network.html proportions) -->
-        <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-          <a class="ws-btn-primary group" data-path="partner-with-us" href="partner-with-us.html">
-            <span>Partner With Us</span>
-            <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-          </a>
-          <a class="ws-btn-glass" href="#principles">
-            Explore Our Principles
-          </a>
-        </div>
+  <!-- Hero Content Container -->
+  <div class="ws-hero-content relative z-10 w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-6 sm:py-8 lg:py-10 text-center flex flex-col items-center">
+    <div class="max-w-[850px] mx-auto text-center flex flex-col items-center gap-3 sm:gap-4">
+      
+      <!-- Eyebrow Badge -->
+      <div class="ws-hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+        <span class="ws-badge-dot w-2 h-2 rounded-full bg-[#82D616] animate-pulse"></span>
+        <span>ABOUT US</span>
       </div>
-      <!-- Right Column: Corporate Infrastructure Glass Card (5 cols on desktop, matching our-network position) -->
-      <div class="flex lg:flex lg:col-span-5 justify-center lg:justify-end w-full mt-6 lg:mt-0">
-        <div class="ws-hero-glass-card p-6 max-w-md w-full flex flex-col gap-4">
-          <div class="flex items-center justify-between border-b border-white/10 pb-3">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-accent-lime animate-pulse"></span>
-              <span class="text-xs font-bold uppercase tracking-wider text-accent-lime">Corporate Infrastructure</span>
-            </div>
-            <span class="text-[10px] uppercase font-semibold text-white/50 tracking-wider">PropelPad</span>
-          </div>
-          <div class="space-y-2">
-            <p class="text-sm font-bold text-white">By PropelPad Business Solutions Private Limited</p>
-            <p class="text-xs text-white/75 leading-relaxed">
-              Professional teams, standard operating procedures, and disciplined cold-chain fulfillment built for enterprise reliability.
-            </p>
-          </div>
-        </div>
+
+      <!-- Main Heading -->
+      <h1 class="ws-hero-title font-display-hero text-display-hero-mobile md:text-display-hero text-surface-canvas tracking-tight font-extrabold leading-[1.15]">
+        Behind every growing food brand<br/>
+        is an <span class="text-accent-lime">operation that works.</span>
+      </h1>
+
+      <!-- Luminous Accent Line -->
+      <div class="w-12 h-1 bg-accent-lime rounded-full my-1"></div>
+
+      <!-- Description -->
+      <p class="ws-hero-desc text-white/85 font-body-lg text-body-lg max-w-[780px] leading-relaxed mx-auto">
+        WhiteStores provides the infrastructure, people and operational support food and FMCG brands need to grow.
+      </p>
+
+      <!-- Supporting Text & Corporate Note -->
+      <p class="ws-hero-subtext text-white/70 font-body-md text-body-md max-w-[720px] leading-relaxed mx-auto">
+        By PropelPad Business Solutions Private Limited. Professional teams, standard operating procedures, and disciplined cold-chain fulfillment built for enterprise reliability.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="ws-hero-actions pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+        <a class="ws-hero-btn-primary inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold shadow-md transition-all duration-200 group" href="partner-with-us.html">
+          <span>Partner With Us</span>
+          <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </a>
+        <a class="ws-hero-btn-secondary inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200" href="#principles">
+          <span>Explore Our Principles</span>
+        </a>
       </div>
+
     </div>
   </div>
 </section>
@@ -311,81 +292,87 @@
 </div>
 </section>
 <!-- 4. SECTION – ABOUT PROPELPAD -->
-<section class="py-20 lg:py-28 bg-brand-white" id="propelpad">
+<section class="ws-propelpad-about py-10 sm:py-12 lg:py-14" id="propelpad">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="bg-brand-deep text-brand-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
-<!-- Subtle background accents -->
-<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-brand-lime/10 blur-3xl pointer-events-none"></div>
-<div class="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-brand-white/5 blur-3xl pointer-events-none"></div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="ws-propelpad-about-card p-6 sm:p-8 lg:p-10 relative overflow-hidden">
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 <!-- Left Side: Narrative -->
-<div class="lg:col-span-7 space-y-6">
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wider uppercase bg-brand-white/10 text-brand-lime border border-brand-white/15">
+<div class="lg:col-span-7 space-y-5">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wider uppercase bg-[#013125]/5 text-[#013125] border border-[#013125]/15">
+<span class="w-2 h-2 rounded-full bg-[#A6F134]"></span>
                 OUR PARENT COMPANY
               </div>
-<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-white leading-tight">
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#013125] leading-tight">
                 Powered by PropelPad Business Solutions.
               </h2>
-<div class="space-y-4 text-base sm:text-lg text-brand-white/85 leading-relaxed font-normal">
+<div class="space-y-3.5 text-base sm:text-lg text-[#252C29] leading-relaxed font-normal">
 <p>
-                  WhiteStores is part of <strong class="text-brand-white font-semibold">PropelPad Business Solutions Private Limited</strong>, a business focused on building operational infrastructure and enabling brands to expand through modern commerce channels.
+                  WhiteStores is a food-commerce infrastructure and operations brand by <strong class="text-[#013125] font-semibold">PropelPad Business Solutions Private Limited</strong>.
                 </p>
 <p>
                   Through WhiteStores, PropelPad brings together infrastructure, people and operational capabilities to support the growing needs of food and FMCG businesses.
                 </p>
 </div>
-<div class="pt-4 flex items-center gap-4 text-xs font-semibold text-brand-white/70">
-<span class="inline-flex items-center gap-1.5">
-<svg class="w-4 h-4 text-brand-lime" fill="currentColor" viewbox="0 0 20 20">
+<div class="pt-2 flex flex-wrap items-center gap-3 text-xs font-semibold text-[#414845]">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#F6F7F3] border border-[#E9ECE8]">
+<svg class="w-4 h-4 text-[#013125]" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
 </svg>
-                  Operational Infrastructure
-                </span>
-<span class="inline-flex items-center gap-1.5">
-<svg class="w-4 h-4 text-brand-lime" fill="currentColor" viewbox="0 0 20 20">
+<span class="text-[#013125] font-medium">Operational Infrastructure</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#F6F7F3] border border-[#E9ECE8]">
+<svg class="w-4 h-4 text-[#013125]" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
 </svg>
-                  Food-Commerce Enablement
-                </span>
+<span class="text-[#013125] font-medium">Food-Commerce Enablement</span>
+</span>
 </div>
 </div>
 <!-- Right Side: Structural Relationship Diagram (Clean & Minimal) -->
 <div class="lg:col-span-5">
-<div class="bg-brand-surfaceDim/90 rounded-2xl p-6 sm:p-8 border border-brand-white/15 shadow-inner">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-white/60 mb-6 text-center">
+<div class="ws-corp-diagram-box p-5 sm:p-6">
+<p class="text-xs font-bold uppercase tracking-wider text-[#69736D] mb-4 text-center">
                   Corporate Architecture
                 </p>
 <!-- Flow Tree -->
-<div class="space-y-4">
+<div class="space-y-0">
 <!-- Node 1: Parent Company -->
-<div class="p-4 rounded-xl bg-brand-white/10 border border-brand-white/15 text-center">
-<span class="text-xs font-semibold text-brand-lime uppercase tracking-wider block mb-1">Parent Entity</span>
-<h4 class="text-base font-bold text-brand-white">PropelPad Business Solutions Private Limited</h4>
-<p class="text-xs text-brand-white/70 mt-1">Enterprise Business &amp; Operations Support</p>
+<div class="ws-corp-node p-3.5 sm:p-4 text-center">
+<span class="text-[11px] font-bold text-[#013125] uppercase tracking-wider block mb-0.5">Parent Entity</span>
+<h4 class="text-sm sm:text-base font-bold text-[#013125]">PropelPad Business Solutions Private Limited</h4>
+<p class="text-xs text-[#69736D] mt-0.5">Enterprise Business &amp; Operations Support</p>
 </div>
-<!-- Connector Arrow -->
-<div class="flex justify-center text-brand-lime">
-<svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Connector Arrow with Animated Operational Flow Line -->
+<div class="flex flex-col items-center justify-center py-0.5 relative h-7" aria-hidden="true">
+<svg class="h-full w-5 overflow-visible" viewbox="0 0 20 28" fill="none">
+<line stroke="#E9ECE8" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
+<line class="ws-flow-connector-line" stroke="#013125" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
+<circle class="ws-flow-pulse-dot" cx="10" cy="4" fill="#A6F134" r="3.5" stroke="#013125" stroke-width="1.5"></circle>
 </svg>
 </div>
 <!-- Node 2: WhiteStores Operating Brand -->
-<div class="p-4 rounded-xl bg-brand-white/15 border border-brand-lime/40 text-center shadow-lg">
-<span class="text-xs font-semibold text-brand-lime uppercase tracking-wider block mb-1">Infrastructure Brand</span>
-<h4 class="text-lg font-extrabold text-brand-white tracking-tight">WhiteStores</h4>
-<p class="text-xs text-brand-white/80 mt-1">Operational backbone for food &amp; FMCG enterprises</p>
+<div class="ws-corp-node-active p-3.5 sm:p-4 text-center relative">
+<span class="absolute top-3 right-3 flex h-2 w-2" aria-hidden="true">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A6F134] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#A6F134]"></span>
+</span>
+<span class="text-[11px] font-bold text-[#013125] uppercase tracking-wider block mb-0.5">Infrastructure Brand</span>
+<h4 class="text-base sm:text-lg font-extrabold text-[#013125] tracking-tight">WhiteStores</h4>
+<p class="text-xs text-[#414845] mt-0.5">Operational backbone for food &amp; FMCG enterprises</p>
 </div>
-<!-- Connector Arrow -->
-<div class="flex justify-center text-brand-lime">
-<svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Connector Arrow with Animated Operational Flow Line -->
+<div class="flex flex-col items-center justify-center py-0.5 relative h-7" aria-hidden="true">
+<svg class="h-full w-5 overflow-visible" viewbox="0 0 20 28" fill="none">
+<line stroke="#E9ECE8" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
+<line class="ws-flow-connector-line" stroke="#013125" stroke-width="2" x1="10" x2="10" y1="0" y2="28"></line>
+<circle class="ws-flow-pulse-dot" cx="10" cy="4" fill="#A6F134" r="3.5" stroke="#013125" stroke-width="1.5"></circle>
 </svg>
 </div>
 <!-- Node 3: Functional Delivery -->
-<div class="p-4 rounded-xl bg-brand-deep border border-brand-white/15 text-center">
-<span class="text-xs font-semibold text-brand-lime uppercase tracking-wider block mb-1">Core Capability</span>
-<h4 class="text-sm font-bold text-brand-white">Food-Commerce Infrastructure &amp; Operations</h4>
-<p class="text-xs text-brand-white/70 mt-1">Storage &amp; Distribution • Commerce Operations • Quick Kitchen</p>
+<div class="ws-corp-node p-3.5 sm:p-4 text-center">
+<span class="text-[11px] font-bold text-[#013125] uppercase tracking-wider block mb-0.5">Core Capability</span>
+<h4 class="text-xs sm:text-sm font-bold text-[#013125]">Food-Commerce Infrastructure &amp; Operations</h4>
+<p class="text-xs text-[#69736D] mt-0.5">Storage &amp; Distribution • Commerce Operations • Quick Kitchen</p>
 </div>
 </div>
 </div>
