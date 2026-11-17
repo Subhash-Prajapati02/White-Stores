@@ -3403,3 +3403,69 @@ main[class*="pt-20"] {
     line-height: 1.45 !important;
   }
 }
+
+
+/* ==========================================================================
+   HOMEPAGE: THREE FEATURE CARDS ALIGNMENT REFINEMENT (SECTION 4B)
+   - Uniform header height (40px) and synchronized badge height (28px)
+   - Prevents multi-line wrapping on Card 01 badge with whitespace-nowrap
+   - Equalized heading min-height for uniform description paragraph baseline
+   ========================================================================== */
+.ws-feature-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+}
+
+.ws-feature-card .ws-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.625rem !important;
+  min-height: 2.5rem !important;
+  width: 100% !important;
+}
+
+.ws-feature-card .ws-card-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 1.75rem !important;
+  padding: 0 0.625rem !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.025em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  border-radius: 9999px !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+}
+
+@media (min-width: 1024px) {
+  .ws-feature-card .ws-card-badge {
+    font-size: 0.6875rem !important;
+    letter-spacing: 0.035em !important;
+  }
+}
+
+.ws-feature-card .ws-card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  margin-top: 0.875rem !important;
+}
+
+@media (min-width: 768px) {
+  .ws-feature-card .ws-card-heading {
+    min-height: 3rem !important;
+    display: flex !important;
+    align-items: flex-start !important;
+  }
+}
+
+.ws-feature-card .ws-card-desc {
+  margin: 0 !important;
+  line-height: 1.6 !important;
+}
