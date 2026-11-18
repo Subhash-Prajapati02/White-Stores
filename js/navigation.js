@@ -183,6 +183,21 @@
         }
       });
     }
+
+    // Dynamic Navbar Border & Shadow on Scroll
+    var navbar = document.querySelector('.ws-navbar');
+    if (navbar) {
+      function updateNavScroll() {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (scrollY > 10) {
+          navbar.classList.add('ws-nav-scrolled');
+        } else {
+          navbar.classList.remove('ws-nav-scrolled');
+        }
+      }
+      window.addEventListener('scroll', updateNavScroll, { passive: true });
+      updateNavScroll();
+    }
   }
 
   if (document.readyState === 'loading') {
