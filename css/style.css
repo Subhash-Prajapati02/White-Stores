@@ -3982,15 +3982,69 @@ header .ws-hero-badge {
 
 @media (max-width: 1023px) {
   .ws-network-map-section {
-    min-height: 100svh;
-    padding-top: 5.5rem !important;
+    min-height: auto;
+    padding-top: 5rem !important;
     padding-bottom: 2.5rem !important;
   }
 
   .ws-network-map-section .ws-map-main-row {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .ws-network-map-section .ws-map-col {
+    width: 100%;
+    height: auto;
+  }
+
+  .ws-network-map-section .ws-list-col {
+    width: 100%;
+    height: auto;
+  }
+
+  .ws-map-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: auto;
+    min-height: unset;
+    padding: 0.75rem;
+    overflow: visible;
+  }
+
+  .ws-map-float-card {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0.75rem !important;
+    box-sizing: border-box;
+  }
+
+  .ws-map-svg-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 600 / 540;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ws-map-svg {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+
+  .ws-loc-card-container {
+    min-height: 320px;
+    max-height: 480px;
   }
 }
 
@@ -4157,10 +4211,6 @@ header .ws-hero-badge {
 
 @media (max-width: 640px) {
   .ws-map-float-card {
-    top: 0.5rem;
-    left: 0.5rem;
-    right: 0.5rem;
-    max-width: none;
     padding: 0.6rem 0.85rem;
   }
 }
