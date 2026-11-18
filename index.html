@@ -114,11 +114,11 @@
       }
     }
   }
-}</script><link rel="stylesheet" href="css/style.css"/>
+}</script><link rel="stylesheet" href="css/style.css?v=compact-white-menu-1"/>
 </head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="ws-navbar">
   <div class="ws-navbar-container">
     
-    <!-- LEFT: Brand Logo (10-12% reduced, vertically centered) -->
+    <!-- LEFT: Brand Logo (Original logo with lime-green mark and snowy-white text) -->
     <div class="ws-nav-col-left">
       <a class="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A6F134] rounded" data-path="home" href="index.html" title="WhiteStores Home">
         <img alt="WhiteStores" class="ws-nav-logo" src="assets/whitestores-logo.png"/>
@@ -168,10 +168,12 @@
       <a class="ws-nav-cta" data-path="partner-with-us" href="partner-with-us.html">Partner With Us</a>
     </div>
 
-    <!-- Mobile Hamburger Toggle Button -->
+    <!-- Mobile Hamburger Toggle Button (Compact green oval/pill with 3 snowy-white lines) -->
     <div class="flex lg:hidden items-center justify-end">
-      <button aria-controls="ws-mobile-drawer" aria-expanded="false" aria-label="Open Mobile Navigation" class="p-2 text-white hover:text-[#A6F134] rounded-lg transition-colors focus:outline-none cursor-pointer" id="ws-mobile-menu-btn" type="button">
-        <span class="material-symbols-outlined text-[26px]">menu</span>
+      <button aria-controls="ws-mobile-drawer" aria-expanded="false" aria-label="Open Mobile Navigation" class="ws-mobile-menu-pill" id="ws-mobile-menu-btn" type="button">
+        <span class="ws-hamburger-bar"></span>
+        <span class="ws-hamburger-bar"></span>
+        <span class="ws-hamburger-bar"></span>
       </button>
     </div>
 
@@ -867,209 +869,399 @@
       
       <!-- Diagram Canvas Column (Channels In logos + Animated Routes + Circular Hub) -->
       <div class="lg:col-span-8 flex flex-col items-center justify-center">
-        <svg viewBox="0 0 680 380" class="w-full h-auto max-w-[640px] overflow-visible select-none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <!-- Text Arcs centered at (390, 190) with R=118.5 -->
-            <!-- 1. Order Management (Top-Right): Clockwise, upright -->
-            <path id="ws-arc-order" d="M 410.58 73.30 A 118.5 118.5 0 0 1 506.70 169.42" fill="none" />
-            <!-- 2. Menu Management (Top-Left): Clockwise, upright -->
-            <path id="ws-arc-menu" d="M 273.30 169.42 A 118.5 118.5 0 0 1 369.42 73.30" fill="none" />
-            <!-- 3. Stock Management (Bottom-Right): Inverted sweep, perfectly upright -->
-            <path id="ws-arc-stock" d="M 410.58 306.70 A 118.5 118.5 0 0 0 506.70 210.58" fill="none" />
-            <!-- 4. Reports & Analytics (Bottom-Left): Inverted sweep, perfectly upright -->
-            <path id="ws-arc-reports" d="M 273.30 210.58 A 118.5 118.5 0 0 0 369.42 306.70" fill="none" />
+        
+        <!-- Desktop Diagram (>= 1024px, completely preserved original layout) -->
+        <div class="hidden lg:flex flex-col items-center justify-center w-full">
+          <svg viewBox="0 0 680 380" class="w-full h-auto max-w-[640px] overflow-visible select-none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Text Arcs centered at (390, 190) with R=118.5 -->
+              <!-- 1. Order Management (Top-Right): Clockwise, upright -->
+              <path id="ws-arc-order" d="M 410.58 73.30 A 118.5 118.5 0 0 1 506.70 169.42" fill="none" />
+              <!-- 2. Menu Management (Top-Left): Clockwise, upright -->
+              <path id="ws-arc-menu" d="M 273.30 169.42 A 118.5 118.5 0 0 1 369.42 73.30" fill="none" />
+              <!-- 3. Stock Management (Bottom-Right): Inverted sweep, perfectly upright -->
+              <path id="ws-arc-stock" d="M 410.58 306.70 A 118.5 118.5 0 0 0 506.70 210.58" fill="none" />
+              <!-- 4. Reports & Analytics (Bottom-Left): Inverted sweep, perfectly upright -->
+              <path id="ws-arc-reports" d="M 273.30 210.58 A 118.5 118.5 0 0 0 369.42 306.70" fill="none" />
 
-            <!-- Drop Shadow Filters -->
-            <filter id="ws-hub-shadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#013125" flood-opacity="0.08" />
-            </filter>
-            <filter id="ws-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#013125" flood-opacity="0.06" />
-            </filter>
+              <!-- Drop Shadow Filters -->
+              <filter id="ws-hub-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#013125" flood-opacity="0.08" />
+              </filter>
+              <filter id="ws-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#013125" flood-opacity="0.06" />
+              </filter>
 
-            <linearGradient id="ws-beam-glow" x1="0%" y1="50%" x2="100%" y2="50%">
-              <stop offset="0%" stop-color="#A6F134" stop-opacity="0.9" />
-              <stop offset="100%" stop-color="#A6F134" stop-opacity="0" />
-            </linearGradient>
+              <linearGradient id="ws-beam-glow" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stop-color="#A6F134" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#A6F134" stop-opacity="0" />
+              </linearGradient>
 
-            <!-- Clip Paths for Logos -->
-            <clipPath id="ws-clip-zomato"><rect x="18" y="42" width="32" height="32" rx="7" /></clipPath>
-            <clipPath id="ws-clip-swiggy"><rect x="18" y="108" width="32" height="32" rx="7" /></clipPath>
-            <clipPath id="ws-clip-ownly"><rect x="18" y="174" width="32" height="32" rx="7" /></clipPath>
-          </defs>
+              <!-- Clip Paths for Logos -->
+              <clipPath id="ws-clip-zomato"><rect x="18" y="42" width="32" height="32" rx="7" /></clipPath>
+              <clipPath id="ws-clip-swiggy"><rect x="18" y="108" width="32" height="32" rx="7" /></clipPath>
+              <clipPath id="ws-clip-ownly"><rect x="18" y="174" width="32" height="32" rx="7" /></clipPath>
+            </defs>
 
-          <!-- CHANNELS IN Header Label in SVG -->
-          <g transform="translate(10, 16)">
-            <circle cx="4" cy="5" r="3" fill="#A6F134" />
-            <text x="13" y="8.5" font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.12em" fill="#013125">CHANNELS IN</text>
-          </g>
-
-          <!-- 5 Connecting Dotted Lines: Directly from each logo card right edge (x=58) to Hub Entrance (x=245, y=190) -->
-          <g stroke="#A6F134" stroke-width="1.75" fill="none" opacity="0.85">
-            <!-- 1. Zomato (y=58) -->
-            <path d="M 58 58 C 130 58, 185 190, 245 190" class="ws-flow-route" />
-            <!-- 2. Swiggy (y=124) -->
-            <path d="M 58 124 C 130 124, 185 190, 245 190" class="ws-flow-route" stroke="#436900" />
-            <!-- 3. Ownly (y=190) -->
-            <path d="M 58 190 L 245 190" class="ws-flow-route" />
-            <!-- 4. Dark Stores (y=256) -->
-            <path d="M 58 256 C 130 256, 185 190, 245 190" class="ws-flow-route" stroke="#436900" />
-            <!-- 5. Marketplaces (y=322) -->
-            <path d="M 58 322 C 130 322, 185 190, 245 190" class="ws-flow-route" />
-          </g>
-
-          <!-- Incoming Convergence Arrow -->
-          <polygon points="248,190 239,185 239,195" fill="#436900" />
-
-          <!-- Outgoing Dotted Route (from Hub right x=535 to WhiteStores Out) -->
-          <g stroke="#013125" stroke-width="2" fill="none">
-            <path d="M 535 190 L 675 190" class="ws-flow-route" />
-          </g>
-          <polygon points="678,190 669,185 669,195" fill="#013125" />
-
-          <!-- Moving Delivery Vehicle along Route -->
-          <g>
-            <animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto" path="M 58 124 C 130 124, 185 190, 245 190 L 535 190 L 675 190" />
-            <g transform="translate(-10, -8)">
-              <!-- Ground Shadow -->
-              <ellipse cx="10" cy="14" rx="11" ry="3.5" fill="rgba(1, 49, 37, 0.25)" />
-              <!-- Insulated Cargo Cold-Box with Lime Accent -->
-              <rect x="0" y="0" width="11" height="12" rx="2" fill="#013125" stroke="#A6F134" stroke-width="1.2" />
-              <line x1="2" y1="6" x2="9" y2="6" stroke="#A6F134" stroke-width="1" />
-              <!-- Scooter Chassis -->
-              <path d="M 11 8 L 17 8 L 20 2 L 16 2 Z" fill="#013125" />
-              <!-- Windshield -->
-              <path d="M 17 2 L 19 -4 L 22 2 Z" fill="#E2E8E0" opacity="0.9" />
-              <!-- Glowing Headlight Beam -->
-              <polygon points="21,2 29,-1 29,5" fill="url(#ws-beam-glow)" />
-              <circle cx="21" cy="2" r="1.5" fill="#A6F134" />
-              <!-- Wheels -->
-              <circle cx="4" cy="12" r="3.5" fill="#252C29" />
-              <circle cx="4" cy="12" r="1.5" fill="#E2E8E0" />
-              <circle cx="18" cy="12" r="3.5" fill="#252C29" />
-              <circle cx="18" cy="12" r="1.5" fill="#E2E8E0" />
-            </g>
-          </g>
-
-          <!-- Order Flow Pulse Indicator (Secondary packet) -->
-          <circle r="3.5" fill="#A6F134" filter="drop-shadow(0 0 4px #A6F134)">
-            <animateMotion dur="3.2s" repeatCount="indefinite" path="M 58 322 C 130 322, 185 190, 245 190" />
-          </circle>
-
-          <!-- 5 Channels In Logo Containers (Logos Only, Equal Sizing, Polished) -->
-          <!-- 1. Zomato (center y=58) -->
-          <g class="ws-channel-card" filter="url(#ws-card-shadow)">
-            <title>Zomato - Multi-Channel Delivery</title>
-            <rect x="10" y="34" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
-            <rect x="16" y="40" width="36" height="36" rx="9" fill="#E23744" />
-            <image href="assets/logos/zomato.jpg" x="18" y="42" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-zomato)" />
-          </g>
-
-          <!-- 2. Swiggy (center y=124) -->
-          <g class="ws-channel-card" filter="url(#ws-card-shadow)">
-            <title>Swiggy - Instamart &amp; Food Orders</title>
-            <rect x="10" y="100" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
-            <rect x="16" y="106" width="36" height="36" rx="9" fill="#FC8019" />
-            <image href="assets/logos/swiggy.png" x="18" y="108" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-swiggy)" />
-          </g>
-
-          <!-- 3. Ownly (center y=190) -->
-          <g class="ws-channel-card" filter="url(#ws-card-shadow)">
-            <title>Ownly - Direct Brand Webstore</title>
-            <rect x="10" y="166" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
-            <rect x="16" y="172" width="36" height="36" rx="9" fill="#F3BA2F" />
-            <image href="assets/logos/ownly.png" x="18" y="174" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-ownly)" />
-          </g>
-
-          <!-- 4. Dark Stores (center y=256) -->
-          <g class="ws-channel-card" filter="url(#ws-card-shadow)">
-            <title>Dark Stores - 15-Min Quick Commerce</title>
-            <rect x="10" y="232" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
-            <rect x="16" y="238" width="36" height="36" rx="9" fill="#2A9D8F" />
-            <path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.9 17.55 11 21 11 21z" fill="#FFFFFF" transform="translate(22, 244) scale(1.0)" />
-          </g>
-
-          <!-- 5. Marketplaces (center y=322) -->
-          <g class="ws-channel-card" filter="url(#ws-card-shadow)">
-            <title>Marketplaces - Omnichannel Aggregators</title>
-            <rect x="10" y="298" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
-            <rect x="16" y="304" width="36" height="36" rx="9" fill="#013125" />
-            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" fill="#A6F134" transform="translate(22, 310) scale(1.0)" />
-          </g>
-
-          <!-- 4 Circular Segments (Donut Ring with cx=390, cy=190, no tabindex to prevent black outline) -->
-          <g filter="url(#ws-hub-shadow)">
-            <!-- 1. Order Management (Top-Right) -->
-            <g class="ws-quad-segment ws-quad-order" data-title="Order Management" data-desc="Multi-channel order aggregation &amp; auto-dispatch" role="button" aria-label="Order Management">
-              <path d="M 397.43 48.19 A 145 145 0 0 1 531.81 182.57 L 481.87 185.19 A 92 92 0 0 0 394.81 98.13 Z" fill="#165B53" />
-              <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
-                <textPath href="#ws-arc-order" startOffset="50%" text-anchor="middle">ORDER MANAGEMENT</textPath>
-              </text>
+            <!-- CHANNELS IN Header Label in SVG -->
+            <g transform="translate(10, 16)">
+              <circle cx="4" cy="5" r="3" fill="#A6F134" />
+              <text x="13" y="8.5" font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.12em" fill="#013125">CHANNELS IN</text>
             </g>
 
-            <!-- 2. Stock Management (Bottom-Right) -->
-            <g class="ws-quad-segment ws-quad-stock" data-title="Stock Management" data-desc="Live cold inventory tracking &amp; automated FEFO rotation" role="button" aria-label="Stock Management">
-              <path d="M 531.81 197.43 A 145 145 0 0 1 397.43 331.81 L 394.81 281.87 A 92 92 0 0 0 481.87 194.81 Z" fill="#E27D60" />
-              <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
-                <textPath href="#ws-arc-stock" startOffset="50%" text-anchor="middle">STOCK MANAGEMENT</textPath>
-              </text>
+            <!-- 5 Connecting Dotted Lines: Directly from each logo card right edge (x=58) to Hub Entrance (x=245, y=190) -->
+            <g stroke="#A6F134" stroke-width="1.75" fill="none" opacity="0.85">
+              <!-- 1. Zomato (y=58) -->
+              <path d="M 58 58 C 130 58, 185 190, 245 190" class="ws-flow-route" />
+              <!-- 2. Swiggy (y=124) -->
+              <path d="M 58 124 C 130 124, 185 190, 245 190" class="ws-flow-route" stroke="#436900" />
+              <!-- 3. Ownly (y=190) -->
+              <path d="M 58 190 L 245 190" class="ws-flow-route" />
+              <!-- 4. Dark Stores (y=256) -->
+              <path d="M 58 256 C 130 256, 185 190, 245 190" class="ws-flow-route" stroke="#436900" />
+              <!-- 5. Marketplaces (y=322) -->
+              <path d="M 58 322 C 130 322, 185 190, 245 190" class="ws-flow-route" />
             </g>
 
-            <!-- 3. Reports & Analytics (Bottom-Left) -->
-            <g class="ws-quad-segment ws-quad-reports" data-title="Reports &amp; Analytics" data-desc="Sales reconciliation &amp; cold-chain SLA metrics" role="button" aria-label="Reports &amp; Analytics">
-              <path d="M 382.57 331.81 A 145 145 0 0 1 248.19 197.43 L 298.13 194.81 A 92 92 0 0 0 385.19 281.87 Z" fill="#F4A261" />
-              <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
-                <textPath href="#ws-arc-reports" startOffset="50%" text-anchor="middle">REPORTS &amp; ANALYTICS</textPath>
-              </text>
+            <!-- Incoming Convergence Arrow -->
+            <polygon points="248,190 239,185 239,195" fill="#436900" />
+
+            <!-- Outgoing Dotted Route (from Hub right x=535 to WhiteStores Out) -->
+            <g stroke="#013125" stroke-width="2" fill="none">
+              <path d="M 535 190 L 675 190" class="ws-flow-route" />
+            </g>
+            <polygon points="678,190 669,185 669,195" fill="#013125" />
+
+            <!-- Moving Delivery Vehicle along Route -->
+            <g>
+              <animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto" path="M 58 124 C 130 124, 185 190, 245 190 L 535 190 L 675 190" />
+              <g transform="translate(-10, -8)">
+                <!-- Ground Shadow -->
+                <ellipse cx="10" cy="14" rx="11" ry="3.5" fill="rgba(1, 49, 37, 0.25)" />
+                <!-- Insulated Cargo Cold-Box with Lime Accent -->
+                <rect x="0" y="0" width="11" height="12" rx="2" fill="#013125" stroke="#A6F134" stroke-width="1.2" />
+                <line x1="2" y1="6" x2="9" y2="6" stroke="#A6F134" stroke-width="1" />
+                <!-- Scooter Chassis -->
+                <path d="M 11 8 L 17 8 L 20 2 L 16 2 Z" fill="#013125" />
+                <!-- Windshield -->
+                <path d="M 17 2 L 19 -4 L 22 2 Z" fill="#E2E8E0" opacity="0.9" />
+                <!-- Glowing Headlight Beam -->
+                <polygon points="21,2 29,-1 29,5" fill="url(#ws-beam-glow)" />
+                <circle cx="21" cy="2" r="1.5" fill="#A6F134" />
+                <!-- Wheels -->
+                <circle cx="4" cy="12" r="3.5" fill="#252C29" />
+                <circle cx="4" cy="12" r="1.5" fill="#E2E8E0" />
+                <circle cx="18" cy="12" r="3.5" fill="#252C29" />
+                <circle cx="18" cy="12" r="1.5" fill="#E2E8E0" />
+              </g>
             </g>
 
-            <!-- 4. Menu Management (Top-Left) -->
-            <g class="ws-quad-segment ws-quad-menu" data-title="Menu Management" data-desc="Instant multi-platform menu &amp; pricing sync" role="button" aria-label="Menu Management">
-              <path d="M 248.19 182.57 A 145 145 0 0 1 382.57 48.19 L 385.19 98.13 A 92 92 0 0 0 298.13 185.19 Z" fill="#2A9D8F" />
-              <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
-                <textPath href="#ws-arc-menu" startOffset="50%" text-anchor="middle">MENU MANAGEMENT</textPath>
-              </text>
-            </g>
-          </g>
-
-          <!-- Central Hub: WhiteStores OS (cx=390, cy=190) -->
-          <circle cx="390" cy="190" r="88" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="2" />
-          <circle cx="390" cy="190" r="82" fill="none" stroke="#F4FBF6" stroke-width="1.5" />
-          
-          <!-- Hub Branding -->
-          <text x="390" y="156" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" fill="#69736D" letter-spacing="0.12em">
-            POWERED BY PROPELPAD
-          </text>
-          <text x="390" y="180" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="17" font-weight="800" fill="#013125" letter-spacing="-0.02em">
-            WhiteStores OS
-          </text>
-          
-          <!-- Live Status Pill inside Hub -->
-          <g transform="translate(338, 198)">
-            <rect width="104" height="22" rx="11" fill="#F4FBF6" stroke="#D1E7DD" stroke-width="1" />
-            <circle cx="14" cy="11" r="3.5" fill="#82D616">
-              <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+            <!-- Order Flow Pulse Indicator (Secondary packet) -->
+            <circle r="3.5" fill="#A6F134" filter="drop-shadow(0 0 4px #A6F134)">
+              <animateMotion dur="3.2s" repeatCount="indefinite" path="M 58 322 C 130 322, 185 190, 245 190" />
             </circle>
-            <text x="58" y="15" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#013125" letter-spacing="0.04em">
-              -18°C SYNC
-            </text>
-          </g>
-          
-          <!-- Dynamic Segment Tip (changes smoothly on hover) -->
-          <text id="ws-hub-dynamic-text" x="390" y="238" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="600" fill="#69736D">
-            Hover segment to inspect
-          </text>
-        </svg>
 
-        <!-- Segment Info Pill (Mobile & Desktop helper) -->
-        <div id="ws-segment-active-pill" class="mt-1 sm:mt-1.5 text-center text-[9.5px] sm:text-[10.5px] text-[#69736D] bg-[#F8FAF7] border border-[#E9ECE8] rounded-full px-3 py-0.5 max-w-[360px] transition-all duration-300 opacity-90 leading-tight">
-          <span class="font-bold text-[#013125]">Connected Backbone:</span> Seamless multi-channel synchronisation
+            <!-- 5 Channels In Logo Containers (Logos Only, Equal Sizing, Polished) -->
+            <!-- 1. Zomato (center y=58) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow)">
+              <title>Zomato - Multi-Channel Delivery</title>
+              <rect x="10" y="34" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="16" y="40" width="36" height="36" rx="9" fill="#E23744" />
+              <image href="assets/logos/zomato.jpg" x="18" y="42" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-zomato)" />
+            </g>
+
+            <!-- 2. Swiggy (center y=124) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow)">
+              <title>Swiggy - Instamart &amp; Food Orders</title>
+              <rect x="10" y="100" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="16" y="106" width="36" height="36" rx="9" fill="#FC8019" />
+              <image href="assets/logos/swiggy.png" x="18" y="108" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-swiggy)" />
+            </g>
+
+            <!-- 3. Ownly (center y=190) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow)">
+              <title>Ownly - Direct Brand Webstore</title>
+              <rect x="10" y="166" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="16" y="172" width="36" height="36" rx="9" fill="#F3BA2F" />
+              <image href="assets/logos/ownly.png" x="18" y="174" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-ownly)" />
+            </g>
+
+            <!-- 4. Dark Stores (center y=256) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow)">
+              <title>Dark Stores - 15-Min Quick Commerce</title>
+              <rect x="10" y="232" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="16" y="238" width="36" height="36" rx="9" fill="#2A9D8F" />
+              <path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.9 17.55 11 21 11 21z" fill="#FFFFFF" transform="translate(22, 244) scale(1.0)" />
+            </g>
+
+            <!-- 5. Marketplaces (center y=322) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow)">
+              <title>Marketplaces - Omnichannel Aggregators</title>
+              <rect x="10" y="298" width="48" height="48" rx="14" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="16" y="304" width="36" height="36" rx="9" fill="#013125" />
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" fill="#A6F134" transform="translate(22, 310) scale(1.0)" />
+            </g>
+
+            <!-- 4 Circular Segments (Donut Ring with cx=390, cy=190, no tabindex to prevent black outline) -->
+            <g filter="url(#ws-hub-shadow)">
+              <!-- 1. Order Management (Top-Right) -->
+              <g class="ws-quad-segment ws-quad-order" data-title="Order Management" data-desc="Multi-channel order aggregation &amp; auto-dispatch" role="button" aria-label="Order Management">
+                <path d="M 397.43 48.19 A 145 145 0 0 1 531.81 182.57 L 481.87 185.19 A 92 92 0 0 0 394.81 98.13 Z" fill="#165B53" />
+                <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-order" startOffset="50%" text-anchor="middle">ORDER MANAGEMENT</textPath>
+                </text>
+              </g>
+
+              <!-- 2. Stock Management (Bottom-Right) -->
+              <g class="ws-quad-segment ws-quad-stock" data-title="Stock Management" data-desc="Live cold inventory tracking &amp; automated FEFO rotation" role="button" aria-label="Stock Management">
+                <path d="M 531.81 197.43 A 145 145 0 0 1 397.43 331.81 L 394.81 281.87 A 92 92 0 0 0 481.87 194.81 Z" fill="#E27D60" />
+                <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-stock" startOffset="50%" text-anchor="middle">STOCK MANAGEMENT</textPath>
+                </text>
+              </g>
+
+              <!-- 3. Reports & Analytics (Bottom-Left) -->
+              <g class="ws-quad-segment ws-quad-reports" data-title="Reports &amp; Analytics" data-desc="Sales reconciliation &amp; cold-chain SLA metrics" role="button" aria-label="Reports &amp; Analytics">
+                <path d="M 382.57 331.81 A 145 145 0 0 1 248.19 197.43 L 298.13 194.81 A 92 92 0 0 0 385.19 281.87 Z" fill="#F4A261" />
+                <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-reports" startOffset="50%" text-anchor="middle">REPORTS &amp; ANALYTICS</textPath>
+                </text>
+              </g>
+
+              <!-- 4. Menu Management (Top-Left) -->
+              <g class="ws-quad-segment ws-quad-menu" data-title="Menu Management" data-desc="Instant multi-platform menu &amp; pricing sync" role="button" aria-label="Menu Management">
+                <path d="M 248.19 182.57 A 145 145 0 0 1 382.57 48.19 L 385.19 98.13 A 92 92 0 0 0 298.13 185.19 Z" fill="#2A9D8F" />
+                <text font-family="'Manrope', sans-serif" font-size="10" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-menu" startOffset="50%" text-anchor="middle">MENU MANAGEMENT</textPath>
+                </text>
+              </g>
+            </g>
+
+            <!-- Central Hub: WhiteStores OS (cx=390, cy=190) -->
+            <circle cx="390" cy="190" r="88" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="2" />
+            <circle cx="390" cy="190" r="82" fill="none" stroke="#F4FBF6" stroke-width="1.5" />
+            
+            <!-- Hub Branding -->
+            <text x="390" y="156" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" fill="#69736D" letter-spacing="0.12em">
+              POWERED BY PROPELPAD
+            </text>
+            <text x="390" y="180" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="17" font-weight="800" fill="#013125" letter-spacing="-0.02em">
+              WhiteStores OS
+            </text>
+            
+            <!-- Live Status Pill inside Hub -->
+            <g transform="translate(338, 198)">
+              <rect width="104" height="22" rx="11" fill="#F4FBF6" stroke="#D1E7DD" stroke-width="1" />
+              <circle cx="14" cy="11" r="3.5" fill="#82D616">
+                <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+              </circle>
+              <text x="58" y="15" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#013125" letter-spacing="0.04em">
+                -18°C SYNC
+              </text>
+            </g>
+            
+            <!-- Dynamic Segment Tip (changes smoothly on hover) -->
+            <text id="ws-hub-dynamic-text" x="390" y="238" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="600" fill="#69736D">
+              Hover segment to inspect
+            </text>
+          </svg>
+
+          <!-- Segment Info Pill (Desktop helper) -->
+          <div id="ws-segment-active-pill" class="mt-1 sm:mt-1.5 text-center text-[9.5px] sm:text-[10.5px] text-[#69736D] bg-[#F8FAF7] border border-[#E9ECE8] rounded-full px-3 py-0.5 max-w-[360px] transition-all duration-300 opacity-90 leading-tight">
+            <span class="font-bold text-[#013125]">Connected Backbone:</span> Seamless multi-channel synchronisation
+          </div>
         </div>
+
+        <!-- Mobile Vertical Flow Diagram (< 1024px: single horizontal logo row -> connector lines -> central connection point -> WhiteStores OS circle -> dotted route to WhiteStores Out panel) -->
+        <div class="flex lg:hidden flex-col items-center justify-center w-full">
+          <svg viewBox="0 0 340 460" class="w-full h-auto max-w-[350px] overflow-visible select-none mx-auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Text Arcs centered at (170, 267) with R=94.5 -->
+              <path id="ws-arc-order-m" d="M 179.88 173.02 A 94.5 94.5 0 0 1 263.98 257.12" fill="none" />
+              <path id="ws-arc-stock-m" d="M 179.88 360.98 A 94.5 94.5 0 0 0 263.98 276.88" fill="none" />
+              <path id="ws-arc-reports-m" d="M 76.02 276.88 A 94.5 94.5 0 0 0 160.12 360.98" fill="none" />
+              <path id="ws-arc-menu-m" d="M 76.02 257.12 A 94.5 94.5 0 0 1 160.12 173.02" fill="none" />
+
+              <filter id="ws-hub-shadow-m" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#013125" flood-opacity="0.08" />
+              </filter>
+              <filter id="ws-card-shadow-m" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#013125" flood-opacity="0.06" />
+              </filter>
+
+              <clipPath id="ws-clip-zomato-m"><rect x="38" y="30" width="32" height="32" rx="7" /></clipPath>
+              <clipPath id="ws-clip-swiggy-m"><rect x="96" y="30" width="32" height="32" rx="7" /></clipPath>
+              <clipPath id="ws-clip-ownly-m"><rect x="154" y="30" width="32" height="32" rx="7" /></clipPath>
+            </defs>
+
+            <!-- CHANNELS IN Header Label in SVG -->
+            <g transform="translate(122, 14)">
+              <circle cx="3" cy="4.5" r="3" fill="#A6F134" />
+              <text x="12" y="8" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.12em" fill="#013125">CHANNELS IN</text>
+            </g>
+
+            <!-- 5 Channels In Logo Containers in a Single Horizontal Row (Logos Only, No Names/Labels) -->
+            <!-- 1. Zomato (cx=54) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow-m)">
+              <title>Zomato - Multi-Channel Delivery</title>
+              <rect x="32" y="24" width="44" height="44" rx="12" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="36" y="28" width="36" height="36" rx="9" fill="#E23744" />
+              <image href="assets/logos/zomato.jpg" x="38" y="30" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-zomato-m)" />
+            </g>
+
+            <!-- 2. Swiggy (cx=112) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow-m)">
+              <title>Swiggy - Instamart &amp; Food Orders</title>
+              <rect x="90" y="24" width="44" height="44" rx="12" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="94" y="28" width="36" height="36" rx="9" fill="#FC8019" />
+              <image href="assets/logos/swiggy.png" x="96" y="30" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-swiggy-m)" />
+            </g>
+
+            <!-- 3. Ownly (cx=170) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow-m)">
+              <title>Ownly - Direct Brand Webstore</title>
+              <rect x="148" y="24" width="44" height="44" rx="12" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="152" y="28" width="36" height="36" rx="9" fill="#F3BA2F" />
+              <image href="assets/logos/ownly.png" x="154" y="30" width="32" height="32" preserveAspectRatio="xMidYMid meet" clip-path="url(#ws-clip-ownly-m)" />
+            </g>
+
+            <!-- 4. Dark Stores (cx=228) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow-m)">
+              <title>Dark Stores - 15-Min Quick Commerce</title>
+              <rect x="206" y="24" width="44" height="44" rx="12" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="210" y="28" width="36" height="36" rx="9" fill="#2A9D8F" />
+              <path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.9 17.55 11 21 11 21z" fill="#FFFFFF" transform="translate(216, 34) scale(1.0)" />
+            </g>
+
+            <!-- 5. Marketplaces (cx=286) -->
+            <g class="ws-channel-card" filter="url(#ws-card-shadow-m)">
+              <title>Marketplaces - Omnichannel Aggregators</title>
+              <rect x="264" y="24" width="44" height="44" rx="12" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="1.5" />
+              <rect x="268" y="28" width="36" height="36" rx="9" fill="#013125" />
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" fill="#A6F134" transform="translate(274, 34) scale(1.0)" />
+            </g>
+
+            <!-- Individual Dotted Connector Lines from Each Logo to Central Connection Point (170, 125) -->
+            <g stroke="#A6F134" stroke-width="1.75" fill="none" opacity="0.85">
+              <path d="M 54 68 C 54 102, 145 125, 170 125" class="ws-flow-route" />
+              <path d="M 112 68 C 112 96, 150 125, 170 125" class="ws-flow-route" stroke="#436900" />
+              <path d="M 170 68 L 170 125" class="ws-flow-route" />
+              <path d="M 228 68 C 228 96, 190 125, 170 125" class="ws-flow-route" stroke="#436900" />
+              <path d="M 286 68 C 286 102, 195 125, 170 125" class="ws-flow-route" />
+            </g>
+
+            <!-- Central Connection Point & Inflow Connector into WhiteStores OS Hub -->
+            <circle cx="170" cy="125" r="3.5" fill="#436900" />
+            <path d="M 170 125 L 170 150" class="ws-flow-route" stroke="#436900" stroke-width="2" fill="none" />
+            <polygon points="170,152 165,143 175,143" fill="#436900" />
+
+            <!-- Outgoing Dotted Route from Hub bottom (y=382) towards WhiteStores Out panel -->
+            <g stroke="#013125" stroke-width="2" fill="none">
+              <path d="M 170 382 L 170 445" class="ws-flow-route" />
+            </g>
+            <polygon points="170,450 165,441 175,441" fill="#013125" />
+
+            <!-- Moving Delivery Vehicle along Route on Mobile -->
+            <g>
+              <animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto" path="M 112 68 C 112 96, 150 125, 170 125 L 170 152 L 170 382 L 170 445" />
+              <g transform="translate(-8, -6) scale(0.85)">
+                <!-- Ground Shadow -->
+                <ellipse cx="10" cy="14" rx="11" ry="3.5" fill="rgba(1, 49, 37, 0.25)" />
+                <!-- Insulated Cargo Cold-Box with Lime Accent -->
+                <rect x="0" y="0" width="11" height="12" rx="2" fill="#013125" stroke="#A6F134" stroke-width="1.2" />
+                <line x1="2" y1="6" x2="9" y2="6" stroke="#A6F134" stroke-width="1" />
+                <!-- Scooter Chassis -->
+                <path d="M 11 8 L 17 8 L 20 2 L 16 2 Z" fill="#013125" />
+                <!-- Windshield -->
+                <path d="M 17 2 L 19 -4 L 22 2 Z" fill="#E2E8E0" opacity="0.9" />
+                <!-- Wheels -->
+                <circle cx="4" cy="12" r="3.5" fill="#252C29" />
+                <circle cx="4" cy="12" r="1.5" fill="#E2E8E0" />
+                <circle cx="18" cy="12" r="3.5" fill="#252C29" />
+                <circle cx="18" cy="12" r="1.5" fill="#E2E8E0" />
+              </g>
+            </g>
+
+            <!-- Order Flow Pulse Indicator on Mobile -->
+            <circle r="3" fill="#A6F134" filter="drop-shadow(0 0 4px #A6F134)">
+              <animateMotion dur="3.2s" repeatCount="indefinite" path="M 286 68 C 286 102, 195 125, 170 125 L 170 152" />
+            </circle>
+
+            <!-- 4 Circular Segments (cx=170, cy=267) -->
+            <g filter="url(#ws-hub-shadow-m)">
+              <!-- 1. Order Management (Top-Right) -->
+              <g class="ws-quad-segment ws-quad-order" data-title="Order Management" data-desc="Multi-channel order aggregation &amp; auto-dispatch" role="button" aria-label="Order Management">
+                <path d="M 177.02 152.21 A 115.0 115.0 0 0 1 284.79 259.98 L 243.86 262.48 A 74.0 74.0 0 0 0 174.52 193.14 Z" fill="#165B53" />
+                <text font-family="'Manrope', sans-serif" font-size="8.5" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-order-m" startOffset="50%" text-anchor="middle">ORDER MANAGEMENT</textPath>
+                </text>
+              </g>
+
+              <!-- 2. Stock Management (Bottom-Right) -->
+              <g class="ws-quad-segment ws-quad-stock" data-title="Stock Management" data-desc="Live cold inventory tracking &amp; automated FEFO rotation" role="button" aria-label="Stock Management">
+                <path d="M 284.79 274.02 A 115.0 115.0 0 0 1 177.02 381.79 L 174.52 340.86 A 74.0 74.0 0 0 0 243.86 271.52 Z" fill="#E27D60" />
+                <text font-family="'Manrope', sans-serif" font-size="8.5" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-stock-m" startOffset="50%" text-anchor="middle">STOCK MANAGEMENT</textPath>
+                </text>
+              </g>
+
+              <!-- 3. Reports & Analytics (Bottom-Left) -->
+              <g class="ws-quad-segment ws-quad-reports" data-title="Reports &amp; Analytics" data-desc="Sales reconciliation &amp; cold-chain SLA metrics" role="button" aria-label="Reports &amp; Analytics">
+                <path d="M 162.98 381.79 A 115.0 115.0 0 0 1 55.21 274.02 L 96.14 271.52 A 74.0 74.0 0 0 0 165.48 340.86 Z" fill="#F4A261" />
+                <text font-family="'Manrope', sans-serif" font-size="8.5" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-reports-m" startOffset="50%" text-anchor="middle">REPORTS &amp; ANALYTICS</textPath>
+                </text>
+              </g>
+
+              <!-- 4. Menu Management (Top-Left) -->
+              <g class="ws-quad-segment ws-quad-menu" data-title="Menu Management" data-desc="Instant multi-platform menu &amp; pricing sync" role="button" aria-label="Menu Management">
+                <path d="M 55.21 259.98 A 115.0 115.0 0 0 1 162.98 152.21 L 165.48 193.14 A 74.0 74.0 0 0 0 96.14 262.48 Z" fill="#2A9D8F" />
+                <text font-family="'Manrope', sans-serif" font-size="8.5" font-weight="800" letter-spacing="0.08em" fill="#FFFFFF">
+                  <textPath href="#ws-arc-menu-m" startOffset="50%" text-anchor="middle">MENU MANAGEMENT</textPath>
+                </text>
+              </g>
+            </g>
+
+            <!-- Central Hub: WhiteStores OS (cx=170, cy=267) -->
+            <circle cx="170" cy="267" r="70" fill="#FFFFFF" stroke="#E9ECE8" stroke-width="2" />
+            <circle cx="170" cy="267" r="65" fill="none" stroke="#F4FBF6" stroke-width="1.5" />
+
+            <!-- Hub Branding -->
+            <text x="170" y="240" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="7.5" font-weight="700" fill="#69736D" letter-spacing="0.1em">
+              POWERED BY PROPELPAD
+            </text>
+            <text x="170" y="260" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="14.5" font-weight="800" fill="#013125" letter-spacing="-0.02em">
+              WhiteStores OS
+            </text>
+
+            <!-- Live Status Pill inside Hub -->
+            <g transform="translate(125, 274)">
+              <rect width="90" height="19" rx="9.5" fill="#F4FBF6" stroke="#D1E7DD" stroke-width="1" />
+              <circle cx="12" cy="9.5" r="3" fill="#82D616">
+                <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+              </circle>
+              <text x="50" y="13" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="8.5" font-weight="700" fill="#013125" letter-spacing="0.04em">
+                -18°C SYNC
+              </text>
+            </g>
+
+            <!-- Dynamic Segment Tip on Mobile -->
+            <text id="ws-hub-dynamic-text-mobile" x="170" y="307" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="8" font-weight="600" fill="#69736D">
+              Tap segment to inspect
+            </text>
+          </svg>
+
+          <!-- Segment Info Pill (Mobile helper) -->
+          <div id="ws-segment-active-pill-mobile" class="mt-1 text-center text-[9.5px] text-[#69736D] bg-[#F8FAF7] border border-[#E9ECE8] rounded-full px-3 py-0.5 max-w-[320px] transition-all duration-300 opacity-90 leading-tight">
+            <span class="font-bold text-[#013125]">Connected Backbone:</span> Seamless multi-channel synchronisation
+          </div>
+        </div>
+
       </div>
 
       <!-- Right Column: WHITESTORES OUT (lg:col-span-4) -->
       <div class="lg:col-span-4 flex flex-col gap-1 sm:gap-1.5">
-        <div class="flex items-center gap-1.5 mb-0.5 lg:mb-1">
+        <div class="flex items-center justify-center lg:justify-start gap-1.5 mb-0.5 lg:mb-1">
           <span class="w-1.5 h-1.5 rounded-full bg-[#A6F134]"></span>
           <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#013125]">WhiteStores Out</span>
         </div>
@@ -1147,52 +1339,74 @@
   <script>
     (function() {
       const segments = document.querySelectorAll('#unified-commerce .ws-quad-segment');
-      const dynamicText = document.getElementById('ws-hub-dynamic-text');
-      const activePill = document.getElementById('ws-segment-active-pill');
+      const dynamicTextDesktop = document.getElementById('ws-hub-dynamic-text');
+      const dynamicTextMobile = document.getElementById('ws-hub-dynamic-text-mobile');
+      const activePillDesktop = document.getElementById('ws-segment-active-pill');
+      const activePillMobile = document.getElementById('ws-segment-active-pill-mobile');
       
       const defaultPillHtml = '<span class="font-bold text-[#013125]">Connected Backbone:</span> Seamless multi-channel synchronisation';
       
+      function activateSegment(title, desc) {
+        if (dynamicTextDesktop) {
+          dynamicTextDesktop.textContent = title;
+          dynamicTextDesktop.setAttribute('fill', '#013125');
+          dynamicTextDesktop.setAttribute('font-weight', '700');
+        }
+        if (dynamicTextMobile) {
+          dynamicTextMobile.textContent = title;
+          dynamicTextMobile.setAttribute('fill', '#013125');
+          dynamicTextMobile.setAttribute('font-weight', '700');
+        }
+        [activePillDesktop, activePillMobile].forEach(pill => {
+          if (pill) {
+            pill.innerHTML = '<span class="font-bold text-[#013125]">' + title + ':</span> ' + desc;
+            pill.classList.add('border-[#A6F134]', 'bg-[#F4FBF6]');
+          }
+        });
+      }
+
+      function resetSegment() {
+        if (dynamicTextDesktop) {
+          dynamicTextDesktop.textContent = 'Hover segment to inspect';
+          dynamicTextDesktop.setAttribute('fill', '#69736D');
+          dynamicTextDesktop.setAttribute('font-weight', '600');
+        }
+        if (dynamicTextMobile) {
+          dynamicTextMobile.textContent = 'Tap segment to inspect';
+          dynamicTextMobile.setAttribute('fill', '#69736D');
+          dynamicTextMobile.setAttribute('font-weight', '600');
+        }
+        [activePillDesktop, activePillMobile].forEach(pill => {
+          if (pill) {
+            pill.innerHTML = defaultPillHtml;
+            pill.classList.remove('border-[#A6F134]', 'bg-[#F4FBF6]');
+          }
+        });
+      }
+
       segments.forEach(seg => {
         seg.addEventListener('mouseenter', () => {
           const title = seg.getAttribute('data-title');
           const desc = seg.getAttribute('data-desc');
-          if (dynamicText) {
-            dynamicText.textContent = title;
-            dynamicText.setAttribute('fill', '#013125');
-            dynamicText.setAttribute('font-weight', '700');
-          }
-          if (activePill) {
-            activePill.innerHTML = '<span class="font-bold text-[#013125]">' + title + ':</span> ' + desc;
-            activePill.classList.add('border-[#A6F134]', 'bg-[#F4FBF6]');
-          }
+          activateSegment(title, desc);
         });
         
-        seg.addEventListener('mouseleave', () => {
-          if (dynamicText) {
-            dynamicText.textContent = 'Hover segment to inspect';
-            dynamicText.setAttribute('fill', '#69736D');
-            dynamicText.setAttribute('font-weight', '600');
-          }
-          if (activePill) {
-            activePill.innerHTML = defaultPillHtml;
-            activePill.classList.remove('border-[#A6F134]', 'bg-[#F4FBF6]');
-          }
-        });
+        seg.addEventListener('mouseleave', resetSegment);
 
         // Click / touch toggle support for mobile/accessibility
-        seg.addEventListener('click', () => {
+        seg.addEventListener('click', (e) => {
+          e.stopPropagation();
           const title = seg.getAttribute('data-title');
           const desc = seg.getAttribute('data-desc');
-          if (dynamicText) {
-            dynamicText.textContent = title;
-            dynamicText.setAttribute('fill', '#013125');
-            dynamicText.setAttribute('font-weight', '700');
-          }
-          if (activePill) {
-            activePill.innerHTML = '<span class="font-bold text-[#013125]">' + title + ':</span> ' + desc;
-            activePill.classList.add('border-[#A6F134]', 'bg-[#F4FBF6]');
-          }
+          activateSegment(title, desc);
         });
+      });
+
+      // Reset when tapping elsewhere on mobile
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#unified-commerce .ws-quad-segment')) {
+          resetSegment();
+        }
       });
     })();
   </script>
@@ -1647,5 +1861,5 @@
   </div>
 </div>
 
-<script src="js/navigation.js" defer></script>
+<script src="js/navigation.js?v=compact-white-menu-1" defer></script>
 </body></html>

@@ -21,14 +21,15 @@
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
 
-      // Comprehensive cross-device scroll lock
+      // Comprehensive cross-device scroll lock on underlying page
+      document.documentElement.classList.add('ws-menu-locked');
+      document.body.classList.add('ws-menu-locked');
       document.body.style.position = 'fixed';
       document.body.style.top = '-' + savedScrollY + 'px';
       document.body.style.left = '0';
       document.body.style.right = '0';
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-      document.body.classList.add('ws-menu-locked');
 
       if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
       if (closeBtn) closeBtn.focus();
@@ -40,14 +41,15 @@
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
 
-      // Restore scroll
+      // Restore normal page scrolling
+      document.documentElement.classList.remove('ws-menu-locked');
+      document.body.classList.remove('ws-menu-locked');
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-      document.body.classList.remove('ws-menu-locked');
 
       window.scrollTo(0, savedScrollY);
 
@@ -92,6 +94,13 @@
           closeMenu();
         }
       });
+
+      // Prevent background touch scrolling outside the white menu panel
+      drawer.addEventListener('touchmove', function (e) {
+        if (!e.target.closest('.ws-mobile-nav-scroll') && !e.target.closest('.ws-mobile-footer')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
     }
 
     // Solutions Submenu Toggle
