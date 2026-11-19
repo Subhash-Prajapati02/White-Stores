@@ -223,6 +223,10 @@ img, video, canvas, svg {
   color: #013125;
 }
 
+.ws-mobile-drawer .ws-badge {
+  display: none !important;
+}
+
 /* Solutions Row in Mobile Menu */
 .ws-solutions-row {
   display: flex;
@@ -1108,9 +1112,18 @@ body.ws-menu-locked {
   width: auto;
   object-fit: contain;
   display: block;
-  mix-blend-mode: multiply;
+  background: transparent !important;
   filter: none !important;
   transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ws-mobile-logo {
+  height: 44px;
+  max-height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent !important;
 }
 
 @media (min-width: 1024px) {
@@ -3293,7 +3306,7 @@ main[class*="pt-20"] {
 
 .ws-feature-card .ws-card-badge {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: flex-start !important;
   gap: 0.375rem !important;
   height: auto !important;
   padding: 0 !important;
@@ -3304,10 +3317,15 @@ main[class*="pt-20"] {
   letter-spacing: 0.08em !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
   border-radius: 0 !important;
-  flex-shrink: 0 !important;
-  line-height: 1 !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  text-align: right !important;
+  justify-content: flex-end !important;
+  line-height: 1.35 !important;
   color: #013125 !important;
 }
 
@@ -3319,6 +3337,7 @@ main[class*="pt-20"] {
   border-radius: 50% !important;
   background-color: #A6F134 !important;
   flex-shrink: 0 !important;
+  margin-top: 0.35em !important;
 }
 
 @media (min-width: 1024px) {
