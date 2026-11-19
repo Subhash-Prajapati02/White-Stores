@@ -1107,8 +1107,8 @@ body.ws-menu-locked {
 /* Reduced Logo (10-12% smaller display size) */
 
 .ws-nav-logo {
-  height: 48px;
-  max-height: 48px;
+  height: 38px;
+  max-height: 38px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1118,8 +1118,8 @@ body.ws-menu-locked {
 }
 
 .ws-mobile-logo {
-  height: 44px;
-  max-height: 44px;
+  height: 36px;
+  max-height: 36px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1128,8 +1128,8 @@ body.ws-menu-locked {
 
 @media (min-width: 1024px) {
   .ws-nav-logo {
-    height: 54px;
-    max-height: 54px;
+    height: 42px;
+    max-height: 42px;
   }
 }
 
