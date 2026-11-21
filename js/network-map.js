@@ -2,10 +2,34 @@
  * WhiteStores Interactive 3D / Isometric India Network Map
  * Renders complete official India map with state boundaries,
  * handles city selection (Mumbai & Thane, Bengaluru, Delhi) with
- * stable unique IDs, verified locality data, and zero DOM flickering or glitches.
+ * stable unique IDs, verified locality data, zoomable & pan-able map canvas,
+ * clickable store location markers, and compact verified nodes panel.
  */
 (function () {
   'use strict';
+
+  var STORE_IMAGES = {
+    // Mumbai (Verified Operational Hubs)
+    '01': 'assets/stitch-exports/professional_documentary_photograph_of_organized_commercial_food_cold_storage.png', // Dahisar
+    '02': 'assets/stitch-exports/documentary_editorial_photograph_of_a_commercial_freezer_cold_storage_facility.png', // Vakola
+    '03': 'assets/stitch-exports/professional_wide_photograph_of_food_cold_storage_warehouse_with_commercial.png', // Santacruz
+    '04': 'assets/images/chembur-facility.png', // Chembur (Actual WhiteStores Chembur facility photograph!)
+    '05': 'assets/stitch-exports/professional_food_commerce_warehouse_operations_a_focused_warehouse_worker_in.png', // Oshiwara
+    '06': 'assets/stitch-exports/professional_documentary_style_photo_of_a_cold_storage_and_industrial_warehouse.png', // Hiranandani Estate
+    '07': 'assets/stitch-exports/editorial_documentary_wide_photograph_of_a_modern_commercial_food_storage_and.png', // Khopat
+    '08': 'assets/stitch-exports/documentary_editorial_photograph_of_food_commerce_infrastructure_operations.png', // Fort
+    '09': 'assets/stitch-exports/documentary_photograph_of_a_modern_commercial_kitchen_professional_chefs_in.png', // Versova
+
+    // Bengaluru (Planned Hubs)
+    'b01': 'assets/stitch-exports/professional_documentary_photograph_of_organized_commercial_food_cold_storage.png',
+    'b02': 'assets/stitch-exports/documentary_editorial_photograph_of_a_commercial_freezer_cold_storage_facility.png',
+    'b03': 'assets/stitch-exports/professional_wide_photograph_of_food_cold_storage_warehouse_with_commercial.png',
+    'b04': 'assets/stitch-exports/professional_food_commerce_warehouse_operations_a_focused_warehouse_worker_in.png',
+
+    // Fallbacks
+    'delhi': 'assets/stitch-exports/professional_wide_photograph_of_food_cold_storage_warehouse_with_commercial.png',
+    'default': 'assets/stitch-exports/professional_documentary_photograph_of_organized_commercial_food_cold_storage.png'
+  };
 
   var NETWORK_DATA = {
     mumbai: {
@@ -100,6 +124,7 @@
     sections.forEach(function (container) {
       var currentCityId = 'mumbai';
       var activeLocationId = '01';
+      var isDragSuppressed = false;
 
       // Query elements strictly within this section container
       var listEl = container.querySelector('.ws-map-location-list');
@@ -115,6 +140,21 @@
       var statePaths = container.querySelectorAll('.ws-state-path');
       var mapPins = container.querySelectorAll('.ws-map-pin');
       var routeLines = container.querySelectorAll('.ws-route-line');
+      var mapStage = container.querySelector('.ws-map-stage');
+      var mapSvg = container.querySelector('.ws-map-svg');
+
+      // Setup Close button on Active Node Card
+      if (floatCard) {
+        var closeBtn = floatCard.querySelector('.ws-float-card-close');
+        if (closeBtn && !closeBtn._hasCloseListener) {
+          closeBtn._hasCloseListener = true;
+          closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            floatCard.classList.add('is-dismissed');
+            floatCard.style.display = 'none';
+          });
+        }
+      }
 
       // Update the Floating Card on the Map
       function updateFloatCard(loc, cityKey) {
@@ -124,47 +164,69 @@
         var tempEl = floatCard.querySelector('.ws-float-card-temp');
         var titleEl = floatCard.querySelector('.ws-float-card-title');
         var regionEl = floatCard.querySelector('.ws-float-card-region');
+        var catchmentEl = floatCard.querySelector('.ws-float-card-catchment');
         var typeEl = floatCard.querySelector('.ws-float-card-type');
         var statusTextEl = floatCard.querySelector('.ws-float-card-status-text');
         var statusWrapper = floatCard.querySelector('.ws-float-card-status-wrapper');
+        var thumbEl = floatCard.querySelector('.ws-float-card-thumb');
+
+        // Resolve thumbnail image
+        if (thumbEl) {
+          var imagePath = STORE_IMAGES['default'];
+          if (cityData.id === 'delhi') {
+            imagePath = STORE_IMAGES['delhi'];
+          } else if (loc) {
+            var lookupKey = (cityData.id === 'bangalore') ? ('b' + loc.id) : loc.id;
+            imagePath = STORE_IMAGES[lookupKey] || STORE_IMAGES[loc.id] || STORE_IMAGES['default'];
+          }
+          thumbEl.src = imagePath;
+          thumbEl.alt = (loc ? loc.name : cityData.cityName) + ' Facility';
+        }
 
         if (cityData.id === 'delhi') {
           if (badgeEl) {
             badgeEl.textContent = 'UPCOMING CLUSTER';
-            badgeEl.className = 'ws-float-card-badge text-[9px] font-extrabold uppercase tracking-widest text-[#013125] bg-[#013125]/10 px-2 py-0.5 rounded-full';
+            badgeEl.className = 'ws-float-card-badge text-[8.5px] font-extrabold uppercase tracking-wider text-[#013125] bg-[#013125]/10 px-2 py-0.5 rounded-full truncate';
           }
           if (tempEl) tempEl.textContent = '-18°C / +4°C';
           if (titleEl) titleEl.textContent = 'WHITE STORES / Delhi Hub ↗';
           if (regionEl) regionEl.textContent = 'National Capital Region (NCR)';
-          if (typeEl) typeEl.textContent = 'Planned Regional Cold Distribution Facility';
+          if (catchmentEl) catchmentEl.textContent = 'Phase 3 Regional Cold Corridor';
+          if (typeEl) typeEl.textContent = 'Planned Regional Cold Hub';
           if (statusTextEl) statusTextEl.textContent = 'Expansion Planned';
-          if (statusWrapper) statusWrapper.className = 'ws-float-card-status-wrapper text-[#013125] font-bold flex items-center gap-1';
+          if (statusWrapper) statusWrapper.className = 'ws-float-card-status-wrapper text-[#013125] font-bold flex items-center gap-1 flex-shrink-0';
         } else if (cityData.id === 'bangalore') {
           if (badgeEl) {
             badgeEl.textContent = 'UPCOMING CLUSTER';
-            badgeEl.className = 'ws-float-card-badge text-[9px] font-extrabold uppercase tracking-widest text-[#013125] bg-[#013125]/10 px-2 py-0.5 rounded-full';
+            badgeEl.className = 'ws-float-card-badge text-[8.5px] font-extrabold uppercase tracking-wider text-[#013125] bg-[#013125]/10 px-2 py-0.5 rounded-full truncate';
           }
           if (tempEl) tempEl.textContent = loc ? loc.temp : '-18°C Ready';
           if (titleEl) titleEl.textContent = loc ? ('WHITE STORE / ' + loc.id + ' - ' + loc.name + ' ↗') : 'WHITE STORES / Bengaluru Hub ↗';
           if (regionEl) regionEl.textContent = loc ? (loc.region + ' (Karnataka)') : 'Southern Tech Corridor (Karnataka)';
+          if (catchmentEl) catchmentEl.textContent = loc ? loc.catchment : 'CBD & Tech Corridor Catchment';
           if (typeEl) typeEl.textContent = loc ? loc.type : 'Planned Cold Fulfilment Facility';
           if (statusTextEl) statusTextEl.textContent = 'Expansion Planned';
-          if (statusWrapper) statusWrapper.className = 'ws-float-card-status-wrapper text-[#013125] font-bold flex items-center gap-1';
+          if (statusWrapper) statusWrapper.className = 'ws-float-card-status-wrapper text-[#013125] font-bold flex items-center gap-1 flex-shrink-0';
         } else {
           // Mumbai (Active)
           if (badgeEl) {
             badgeEl.textContent = 'ACTIVE NODE';
-            badgeEl.className = 'ws-float-card-badge text-[9px] font-extrabold uppercase tracking-widest text-[#013125] bg-[#A6F134]/30 px-2 py-0.5 rounded-full';
+            badgeEl.className = 'ws-float-card-badge text-[8.5px] font-extrabold uppercase tracking-wider text-[#013125] bg-[#A6F134]/30 px-2 py-0.5 rounded-full truncate';
           }
           if (loc) {
             if (tempEl) tempEl.textContent = loc.temp;
             if (titleEl) titleEl.textContent = 'WHITE STORE / ' + loc.id + ' - ' + loc.name + ' ↗';
             if (regionEl) regionEl.textContent = loc.region + ' (Mumbai & Thane)';
+            if (catchmentEl) catchmentEl.textContent = loc.catchment;
             if (typeEl) typeEl.textContent = loc.type;
           }
           if (statusTextEl) statusTextEl.textContent = 'Live Synced';
-          if (statusWrapper) statusWrapper.className = 'ws-float-card-status-wrapper text-[#82D616] font-bold flex items-center gap-1';
+          if (statusWrapper) statusWrapper.className = 'ws-float-card-status-wrapper text-[#82D616] font-bold flex items-center gap-1 flex-shrink-0';
         }
+
+        // Keep card visible on location updates
+        floatCard.classList.remove('is-dismissed');
+        floatCard.style.display = '';
       }
 
       // Render Subnode markers cleanly inside SVG
@@ -181,12 +243,23 @@
           var sx = cityData.baseCoord.x + loc.offset.dx;
           var sy = cityData.baseCoord.y + loc.offset.dy;
           var isActive = loc.id === activeLocationId;
-          var dotColor = cityData.isUpcoming ? '#013125' : (isActive ? '#A6F134' : '#013125');
-          var strokeColor = isActive ? '#013125' : '#FFFFFF';
-          var radius = isActive ? '5' : '3.2';
+          var pillFill = isActive ? '#013125' : '#FFFFFF';
+          var pillStroke = isActive ? '#A6F134' : '#013125';
+          var strokeWidth = isActive ? '2' : '1.3';
+          var textColor = isActive ? '#FFFFFF' : '#013125';
+          var dotColor = '#A6F134';
+
+          var pulseRing = isActive ? '<circle class="ws-subnode-pulse" cx="0" cy="0" r="14" fill="none" stroke="#A6F134" stroke-width="2"/>' : '';
 
           svgHtml += '<g class="ws-subnode-marker ' + (isActive ? 'is-active' : '') + '" data-id="' + loc.id + '" transform="translate(' + sx + ', ' + sy + ')" role="button" tabindex="0" aria-label="' + loc.name + '">';
-          svgHtml += '  <circle cx="0" cy="0" r="' + radius + '" fill="' + dotColor + '" stroke="' + strokeColor + '" stroke-width="1.2" class="transition-all duration-200"/>';
+          svgHtml += '  <circle class="ws-subnode-hit" cx="0" cy="0" r="18" fill="rgba(0,0,0,0.001)" pointer-events="all"/>';
+          svgHtml += pulseRing;
+          svgHtml += '  <g class="ws-marker-badge" filter="drop-shadow(0 2px 4px rgba(1,49,37,0.28))">';
+          svgHtml += '    <rect x="-14" y="-8" width="28" height="16" rx="8" fill="' + pillFill + '" stroke="' + pillStroke + '" stroke-width="' + strokeWidth + '"/>';
+          svgHtml += '    <circle cx="-6" cy="0" r="2.8" fill="' + dotColor + '"/>';
+          svgHtml += '    <text x="4.5" y="0.5" text-anchor="middle" dominant-baseline="central" font-family="Manrope, sans-serif" font-size="8.5" font-weight="800" fill="' + textColor + '" letter-spacing="0.02em">' + loc.id + '</text>';
+          svgHtml += '  </g>';
+          svgHtml += '  <title>' + loc.id + ' - ' + loc.name + ' (' + loc.region + ')</title>';
           svgHtml += '</g>';
         });
         subnodesLayer.innerHTML = svgHtml;
@@ -195,9 +268,17 @@
         var subnodeEls = subnodesLayer.querySelectorAll('.ws-subnode-marker');
         subnodeEls.forEach(function (marker) {
           marker.addEventListener('click', function (e) {
+            if (isDragSuppressed) return;
             e.stopPropagation();
             var id = marker.getAttribute('data-id');
             setActiveLocation(id);
+          });
+          marker.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              var id = marker.getAttribute('data-id');
+              setActiveLocation(id);
+            }
           });
         });
       }
@@ -230,25 +311,7 @@
 
         // 2. Update Subnode markers UI in SVG
         if (subnodesLayer) {
-          var markers = subnodesLayer.querySelectorAll('.ws-subnode-marker');
-          markers.forEach(function (marker) {
-            var mCircle = marker.querySelector('circle');
-            if (marker.getAttribute('data-id') === activeLocationId) {
-              marker.classList.add('is-active');
-              if (mCircle) {
-                mCircle.setAttribute('r', '5.5');
-                mCircle.setAttribute('fill', cityData.isUpcoming ? '#A6F134' : '#A6F134');
-                mCircle.setAttribute('stroke', '#013125');
-              }
-            } else {
-              marker.classList.remove('is-active');
-              if (mCircle) {
-                mCircle.setAttribute('r', '3.2');
-                mCircle.setAttribute('fill', '#013125');
-                mCircle.setAttribute('stroke', '#FFFFFF');
-              }
-            }
-          });
+          updateSubnodes(currentCityId);
         }
 
         // 3. Update Floating Card
@@ -264,14 +327,14 @@
 
         if (cityData.id === 'delhi') {
           // Delhi: Render clean upcoming expansion cards (no fictional stores)
-          var html = '<div class="space-y-2 py-1">';
+          var html = '<div class="space-y-1.5 py-0.5">';
           cityData.upcomingInfo.forEach(function (info) {
-            html += '<div class="p-3 rounded-xl bg-[#F8FAF7] border border-[#E9ECE8] transition-all hover:border-[#A6F134]/60 hover:bg-[#F2F7F3]">';
-            html += '  <div class="flex items-center justify-between gap-2 mb-1">';
-            html += '    <span class="text-xs font-bold text-[#013125]">' + info.title + '</span>';
-            html += '    <span class="text-[9.5px] font-bold text-[#013125] bg-[#A6F134]/25 px-2 py-0.5 rounded-full flex-shrink-0">' + info.badge + '</span>';
+            html += '<div class="p-2.5 rounded-lg bg-[#F8FAF7] border border-[#E9ECE8] transition-all hover:border-[#A6F134]/60 hover:bg-[#F2F7F3]">';
+            html += '  <div class="flex items-center justify-between gap-1.5 mb-0.5">';
+            html += '    <span class="text-[11.5px] font-bold text-[#013125] leading-snug">' + info.title + '</span>';
+            html += '    <span class="text-[9px] font-bold text-[#013125] bg-[#A6F134]/25 px-1.5 py-0.5 rounded-full flex-shrink-0">' + info.badge + '</span>';
             html += '  </div>';
-            html += '  <p class="text-[11px] text-[#55605B] leading-relaxed">' + info.desc + '</p>';
+            html += '  <p class="text-[10px] text-[#55605B] leading-relaxed">' + info.desc + '</p>';
             html += '</div>';
           });
           html += '</div>';
@@ -281,16 +344,16 @@
           var listHtml = '';
           cityData.locations.forEach(function (loc) {
             var isActive = loc.id === activeLocationId;
-            var numBg = cityData.isUpcoming ? 'bg-[#EBF1EC] text-[#013125]' : 'bg-[#F0F4F0] text-[#69736D]';
+            var numBg = cityData.isUpcoming ? 'bg-[#EBF1EC] text-[#013125]' : (isActive ? 'bg-[#A6F134] text-[#013125]' : 'bg-[#F0F4F0] text-[#69736D]');
             listHtml += '<li class="ws-loc-item ' + (isActive ? 'is-active' : '') + '" data-id="' + loc.id + '" role="option" aria-selected="' + (isActive ? 'true' : 'false') + '" tabindex="0">';
-            listHtml += '  <div class="flex items-center gap-2.5 min-w-0">';
-            listHtml += '    <span class="ws-loc-number w-6 h-6 rounded-md flex items-center justify-center text-[10.5px] font-bold ' + numBg + ' flex-shrink-0 transition-colors">' + loc.id + '</span>';
+            listHtml += '  <div class="flex items-center gap-2 min-w-0">';
+            listHtml += '    <span class="ws-loc-number w-5 h-5 rounded flex items-center justify-center text-[9.5px] font-bold ' + numBg + ' flex-shrink-0 transition-colors">' + loc.id + '</span>';
             listHtml += '    <div class="flex flex-col min-w-0">';
-            listHtml += '      <span class="ws-loc-name text-xs sm:text-[13px] font-bold text-[#252C29] transition-colors truncate">' + loc.name + '</span>';
-            listHtml += '      <span class="text-[10px] text-[#69736D] truncate leading-tight">' + loc.region + '</span>';
+            listHtml += '      <span class="ws-loc-name text-xs font-bold text-[#252C29] transition-colors truncate">' + loc.name + '</span>';
+            listHtml += '      <span class="ws-loc-region text-[9.5px] text-[#69736D] truncate leading-tight">' + loc.region + '</span>';
             listHtml += '    </div>';
             listHtml += '  </div>';
-            listHtml += '  <span class="ws-loc-arrow text-[#69736D] text-xs font-bold transition-transform flex-shrink-0">↗</span>';
+            listHtml += '  <span class="ws-loc-arrow text-[#69736D] text-[11px] font-bold transition-transform flex-shrink-0">↗</span>';
             listHtml += '</li>';
           });
           listEl.innerHTML = listHtml;
@@ -411,6 +474,7 @@
       // Map Pin Direct Click Handlers
       mapPins.forEach(function (pin) {
         pin.addEventListener('click', function () {
+          if (isDragSuppressed) return;
           var targetCity = pin.getAttribute('data-city');
           if (targetCity && targetCity !== currentCityId) {
             selectCity(targetCity);
@@ -421,6 +485,7 @@
       // State Boundary Click Handlers (e.g. clicking Maharashtra, Karnataka, or Delhi)
       statePaths.forEach(function (path) {
         path.addEventListener('click', function () {
+          if (isDragSuppressed) return;
           var slug = path.getAttribute('data-slug');
           if (slug === 'maharashtra' && currentCityId !== 'mumbai') {
             selectCity('mumbai');
@@ -431,6 +496,40 @@
           }
         });
       });
+
+      // Maintain the map stably at its default zoom level (scale 1.0)
+      function initDefaultMapLevel() {
+        if (!mapStage || !mapSvg) return;
+        var zoomLayer = mapSvg.querySelector('#ws-map-zoom-layer');
+        if (zoomLayer) {
+          zoomLayer.removeAttribute('transform');
+        }
+      }
+
+      initDefaultMapLevel();
+
+      // ----------------------------------------------------------------------
+      // Click outside map popup to dismiss
+      // ----------------------------------------------------------------------
+      if (mapStage) {
+        mapStage.addEventListener('click', function (e) {
+          // If clicked inside popup, subnode marker, city pill, or list: do not dismiss
+          if (
+            e.target.closest('.ws-map-float-card') ||
+            e.target.closest('.ws-subnode-marker') ||
+            e.target.closest('.ws-city-pill') ||
+            e.target.closest('.ws-loc-item') ||
+            e.target.closest('.ws-map-pin')
+          ) {
+            return;
+          }
+
+          if (floatCard && !isDragSuppressed) {
+            floatCard.classList.add('is-dismissed');
+            floatCard.style.display = 'none';
+          }
+        });
+      }
 
       // Initial Selection: Mumbai & Thane
       selectCity('mumbai');

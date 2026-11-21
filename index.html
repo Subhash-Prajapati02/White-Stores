@@ -114,7 +114,7 @@
       }
     }
   }
-}</script><link rel="stylesheet" href="css/style.css?v=ws-logo-size-v1"/>
+}</script><link rel="stylesheet" href="css/style.css?v=ws-no-zoom-v4"/>
 </head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="ws-navbar">
   <div class="ws-navbar-container">
     
@@ -1644,28 +1644,39 @@
       <div class="ws-map-col">
         <div class="ws-map-stage">
           
-          <!-- Floating Active Location Card -->
-          <div class="ws-map-float-card" aria-live="polite">
-            <div class="flex items-center justify-between gap-2 mb-1">
-              <span class="ws-float-card-badge text-[9px] font-extrabold uppercase tracking-widest text-[#013125] bg-[#A6F134]/30 px-2 py-0.5 rounded-full">
-                ACTIVE NODE
-              </span>
-              <span class="ws-float-card-temp text-[10px] font-bold text-[#013125] bg-[#F0F4F0] px-2 py-0.5 rounded-full">
-                -18°C Stable
-              </span>
+          <!-- Airbnb-Style Store Location Popup Card -->
+          <div class="ws-map-float-card ws-airbnb-popup" aria-live="polite">
+            <div class="ws-airbnb-popup-media relative">
+              <img class="ws-float-card-thumb w-full h-[120px] object-cover rounded-t-xl" src="assets/stitch-exports/professional_documentary_photograph_of_organized_commercial_food_cold_storage.png" alt="Dahisar Facility" loading="lazy" />
+              <button type="button" class="ws-float-card-close absolute top-2 right-2 w-7 h-7 rounded-full bg-white/95 backdrop-blur-sm border border-black/10 shadow-md flex items-center justify-center text-[#252C29] hover:bg-white hover:text-black transition-all" aria-label="Close popup" title="Close popup">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+              <div class="ws-airbnb-popup-badges absolute bottom-2 left-2 flex items-center gap-1.5">
+                <span class="ws-float-card-badge text-[8.5px] font-extrabold uppercase tracking-wider text-[#013125] bg-[#A6F134] px-2 py-0.5 rounded-full shadow-sm">
+                  ACTIVE NODE
+                </span>
+                <span class="ws-float-card-temp text-[9px] font-bold text-[#013125] bg-white/95 backdrop-blur-sm px-2 py-0.5 rounded-full shadow-sm">
+                  -18°C Stable
+                </span>
+              </div>
             </div>
-            <h3 class="ws-float-card-title text-sm sm:text-base font-extrabold text-[#013125] tracking-tight mb-0.5">
-              WHITE STORE / 01 - Dahisar ↗
-            </h3>
-            <p class="ws-float-card-region text-[11px] font-semibold text-[#69736D] mb-1.5">
-              Western Suburbs (North)
-            </p>
-            <div class="pt-1.5 border-t border-[#E9ECE8] flex items-center justify-between text-[10.5px]">
-              <span class="ws-float-card-type font-bold text-[#013125]">Cold Fulfilment Node</span>
-              <span class="ws-float-card-status-wrapper text-[#82D616] font-bold flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#82D616] animate-pulse"></span>
-                <span class="ws-float-card-status-text">Live Synced</span>
-              </span>
+            <div class="ws-airbnb-popup-body p-3">
+              <h3 class="ws-float-card-title text-[13px] font-extrabold text-[#013125] tracking-tight leading-snug mb-1 truncate">
+                WHITE STORE / 01 - Dahisar ↗
+              </h3>
+              <p class="ws-float-card-region text-[10.5px] font-semibold text-[#55605B] leading-tight mb-1 truncate">
+                Western Suburbs (North)
+              </p>
+              <p class="ws-float-card-catchment text-[9.5px] text-[#717E77] leading-tight mb-2 truncate">
+                15-Min Quick Commerce &amp; Aggregators
+              </p>
+              <div class="pt-2 border-t border-[#E9ECE8] flex items-center justify-between text-[10px]">
+                <span class="ws-float-card-type font-bold text-[#013125] truncate">Cold Fulfilment Node</span>
+                <span class="ws-float-card-status-wrapper text-[#013125] font-bold flex items-center gap-1.5 flex-shrink-0">
+                  <span class="w-2 h-2 rounded-full bg-[#82D616] animate-pulse"></span>
+                  <span class="ws-float-card-status-text">Live Synced</span>
+                </span>
+              </div>
             </div>
           </div>
 
@@ -1697,6 +1708,9 @@
                   <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#A6F134" flood-opacity="0.85"/>
                 </filter>
               </defs>
+
+              <!-- Zoomable & Pannable Map Layer (Google Maps Style) -->
+              <g id="ws-map-zoom-layer" class="ws-map-zoom-layer">
 
               <!-- 3D Isometric Coordinate Grid Background -->
               <g stroke="#E0EAE1" stroke-width="0.8" opacity="0.6">
@@ -1852,6 +1866,7 @@
                   <text x="64" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', sans-serif" font-size="8.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.04em">BENGALURU – UPCOMING</text>
                 </g>
               </g>
+                          </g><!-- /#ws-map-zoom-layer -->
             </svg>
           </div>
         </div>
@@ -2212,5 +2227,5 @@
 </div>
 
 <script src="js/navigation.js?v=compact-white-menu-1" defer></script>
-<script src="js/network-map.js" defer></script>
+<script src="js/network-map.js?v=ws-no-zoom-v4" defer></script>
 </body></html>

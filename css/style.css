@@ -3963,27 +3963,28 @@ header .ws-hero-badge {
 
 @media (min-width: 1024px) {
   .ws-network-map-section {
-    height: 100svh !important;
-    max-height: 100svh !important;
-    min-height: 100svh !important;
+    height: auto !important;
+    max-height: unset !important;
+    min-height: unset !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
     padding-top: calc(var(--ws-nav-height, 68px) + 0.75rem) !important;
-    padding-bottom: 0.75rem !important;
+    padding-bottom: 1.25rem !important;
   }
 
   .ws-network-map-section .ws-map-main-row {
-    flex: 1 1 0% !important;
-    min-height: 0 !important;
+    height: clamp(430px, 48vh, 480px) !important;
+    min-height: 430px !important;
+    max-height: 480px !important;
     display: grid !important;
-    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
-    gap: 1.25rem !important;
+    grid-template-columns: minmax(0, 1fr) 330px !important;
+    gap: 1.5rem !important;
     align-items: stretch !important;
   }
 
   .ws-network-map-section .ws-map-col {
-    grid-column: span 7 / span 7 !important;
+    grid-column: span 1 / span 1 !important;
+    width: 100% !important;
     height: 100% !important;
     min-height: 0 !important;
     display: flex !important;
@@ -3991,7 +3992,8 @@ header .ws-hero-badge {
   }
 
   .ws-network-map-section .ws-list-col {
-    grid-column: span 5 / span 5 !important;
+    grid-column: span 1 / span 1 !important;
+    width: 330px !important;
     height: 100% !important;
     min-height: 0 !important;
     display: flex !important;
@@ -4033,13 +4035,64 @@ header .ws-hero-badge {
     left: 1rem !important;
     top: auto !important;
     right: auto !important;
-    width: 205px !important;
-    max-width: 205px !important;
-    min-width: 205px !important;
+    width: 240px !important;
+    max-width: 240px !important;
+    min-width: 240px !important;
     box-sizing: border-box !important;
-    padding: 0.55rem 0.75rem !important;
+    padding: 0.65rem 0.75rem !important;
     margin-bottom: 0 !important;
-    z-index: 20 !important;
+    z-index: 25 !important;
+  }
+
+  /* Compact Verified Nodes Panel on Desktop - No scrolling, no oversized height */
+  .ws-network-map-section .ws-loc-card-container {
+    padding: 0.75rem 0.85rem !important;
+    border-radius: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ws-network-map-section .ws-map-location-list {
+    flex: 1 1 0% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 0.25rem !important;
+  }
+
+  .ws-network-map-section .ws-loc-item {
+    padding: 0.24rem 0.5rem !important;
+    border-radius: 0.5rem !important;
+    margin-bottom: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+  }
+
+  .ws-network-map-section .ws-loc-item .ws-loc-number {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  .ws-network-map-section .ws-loc-item .ws-loc-name {
+    font-size: 0.75rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .ws-network-map-section .ws-loc-item .ws-loc-region {
+    font-size: 0.625rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .ws-network-map-section .ws-loc-item .ws-loc-arrow {
+    font-size: 11px !important;
   }
 
   .ws-network-map-section .ws-map-float-card .ws-float-card-badge {
@@ -4266,23 +4319,6 @@ header .ws-hero-badge {
   outline: none;
 }
 
-.ws-subnode-marker circle {
-  transition: r 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), fill 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
-}
-
-.ws-subnode-marker:hover circle {
-  r: 4.8;
-  filter: drop-shadow(0 0 4px #A6F134);
-}
-
-.ws-subnode-marker.is-active circle {
-  r: 5.5;
-  fill: #A6F134;
-  stroke: #013125;
-  stroke-width: 1.4;
-  filter: drop-shadow(0 0 6px #A6F134);
-}
-
 @keyframes ws-pin-pulse {
   0% {
     r: 10px;
@@ -4417,3 +4453,188 @@ header .ws-hero-badge {
 
 
 
+
+
+/* ==========================================================================
+   INTERACTIVE INDIA MAP & VERIFIED NODES PANEL (AIRBNB STYLE)
+   ========================================================================== */
+
+/* Map Stage */
+.ws-map-stage {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Airbnb-Style Store Location Popup Card */
+.ws-map-float-card.ws-airbnb-popup {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  top: auto;
+  right: auto;
+  z-index: 25;
+  width: 260px !important;
+  max-width: 260px !important;
+  min-width: 260px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #DFE5DE !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 14px 34px rgba(1, 49, 37, 0.14), 0 2px 8px rgba(1, 49, 37, 0.05) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  pointer-events: auto !important;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.ws-map-float-card.ws-airbnb-popup.is-dismissed {
+  display: none !important;
+}
+
+.ws-airbnb-popup-media {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background-color: #EBF1EC;
+}
+
+.ws-airbnb-popup-media .ws-float-card-thumb {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+  border: none !important;
+  transition: transform 0.3s ease !important;
+}
+
+.ws-map-float-card.ws-airbnb-popup:hover .ws-float-card-thumb {
+  transform: scale(1.03);
+}
+
+.ws-airbnb-popup-media .ws-float-card-close {
+  position: absolute !important;
+  top: 0.5rem !important;
+  right: 0.5rem !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #252C29 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+  padding: 0 !important;
+}
+
+.ws-airbnb-popup-media .ws-float-card-close:hover {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  transform: scale(1.08) !important;
+}
+
+.ws-airbnb-popup-badges {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 5;
+}
+
+.ws-airbnb-popup-body {
+  padding: 0.65rem 0.8rem 0.75rem 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .ws-map-float-card.ws-airbnb-popup {
+    width: calc(100% - 2rem) !important;
+    max-width: 320px !important;
+    left: 1rem !important;
+    bottom: 1rem !important;
+  }
+}
+
+/* Airbnb-Style Store Location Markers in SVG - Fixed geographical anchor, zero coordinate jumping */
+.ws-subnode-marker {
+  cursor: pointer;
+  outline: none;
+  /* NEVER apply CSS transform to .ws-subnode-marker because it overrides SVG transform="translate(x,y)"! */
+}
+
+.ws-subnode-marker .ws-marker-badge rect {
+  transition: fill 0.2s ease, stroke 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.ws-subnode-marker .ws-marker-badge circle {
+  transition: fill 0.2s ease;
+}
+
+.ws-subnode-marker .ws-marker-badge text {
+  transition: fill 0.2s ease;
+}
+
+/* Hover: subtle green border glow and accent on the badge without any displacement */
+.ws-subnode-marker:hover .ws-marker-badge rect {
+  stroke: #A6F134 !important;
+  stroke-width: 2px !important;
+  filter: drop-shadow(0 0 6px rgba(166, 241, 52, 0.65)) !important;
+}
+
+/* Active: WhiteStores Forest Green background with lime accent */
+.ws-subnode-marker.is-active .ws-marker-badge rect {
+  fill: #013125 !important;
+  stroke: #A6F134 !important;
+  stroke-width: 2px !important;
+  filter: drop-shadow(0 2px 8px rgba(1, 49, 37, 0.45)) !important;
+}
+
+.ws-subnode-marker.is-active .ws-marker-badge text {
+  fill: #FFFFFF !important;
+}
+
+.ws-subnode-pulse {
+  animation: ws-subnode-ring-pulse 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes ws-subnode-ring-pulse {
+  0% {
+    r: 6px;
+    opacity: 0.9;
+    stroke-width: 2px;
+  }
+  100% {
+    r: 18px;
+    opacity: 0;
+    stroke-width: 0.5px;
+  }
+}
+
+@keyframes ws-fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ws-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
